@@ -1,0 +1,54 @@
+<div>
+    <div class="col-6 mx-auto">
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="email" [(ngModel)]='email' name="email">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="pass" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="pass" [(ngModel)]="pass" name="pass">
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex button-group">
+            <button class="btn btn-danger" (click)="accountService.loginWithGoogle()">Login with Google</button>
+            <button class="btn btn-primary" (click)="accountService.customLogin()">Login with Email</button>
+        </div>
+    </div>
+</div>
+
+<!-- <button class="btn btn-primary" (click)="register()">Register</button> -->
+
+<!-- Form-->
+<div class="form">
+    <div class="form-toggle"></div>
+    <div class="form-panel one">
+        <div class="form-header">
+            <h1>Account Login</h1>
+        </div>
+        <div class="form-content">
+            <form>
+                <div class="form-group"><label for="username">Username</label><input type="text" id="username" name="username" required="required" /></div>
+                <div class="form-group"><label for="password">Password</label><input type="password" id="password" name="password" required="required" /></div>
+                <div class="form-group"><label class="form-remember"><input type="checkbox" />Remember Me</label><a class="form-recovery" href="#">Forgot Password?</a></div>
+                <div class="form-group"><button type="submit">Log In</button></div>
+            </form>
+        </div>
+    </div>
+    <div class="form-panel two">
+        <div class="form-header">
+            <h1>Register Account</h1>
+        </div>
+        <div class="form-content">
+            <form>
+                <div class="form-group"><label for="username">Username</label><input type="text" id="username" name="username" required="required" /></div>
+                <div class="form-group"><label for="password">Password</label><input type="password" id="password" name="password" required="required" /></div>
+                <div class="form-group"><label for="cpassword">Confirm Password</label><input type="password" id="cpassword" name="cpassword" required="required" /></div>
+                <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" required="required" /></div>
+                <div class="form-group"><button type="submit">Register</button></div>
+            </form>
+        </div>
+    </div>
+</div>

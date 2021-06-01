@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import * as auth from 'firebase/app'
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { AccountService } from '../services/login/account.service'
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public auth: AngularFireAuth,
+    public accountService: AccountService,
+    public router: Router
+  ) { }
 
   ngOnInit(): void {
   }
