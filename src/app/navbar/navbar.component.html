@@ -17,30 +17,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto py-4 py-md-0">
                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                  <a class="nav-link" [routerLink]="['home']">Home</a>
+                  <a class="nav-link" [routerLink]="['home']">Inicio</a>
                 </li>
                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">Template</a>
+                    aria-expanded="false">Menú</a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Create</a>
-                    <a class="dropdown-item" href="#">Find</a>
-                  </div>
-                </li>
-                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">Text</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Create</a>
-                    <a class="dropdown-item" href="#">Find</a>
+                    <a class="dropdown-item" href="#">Desayunos</a>
+                    <a class="dropdown-item" href="#">Platos Fuertes</a>
                   </div>
                 </li>
                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                  <a class="nav-link" [routerLink]="['faq']">Generate</a>
+                  <a class="nav-link" href="#">Contacto</a>
                 </li>
                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                  <a class="nav-link" href="#">Help</a>
+                  <a class="nav-link" [routerLink]="['faq']">FAQ</a>
                 </li>
+               
 
                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" *ngIf="auth.user| async; else showLogin" >
                   <a class="nav-link" (click)="accountService.logout()">Cerrar Sesión</a>
