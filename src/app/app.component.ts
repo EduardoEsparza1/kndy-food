@@ -11,50 +11,49 @@ export class AppComponent {
   constructor() {}
 
   ngOnInit() {
-    $(document).ready(function () {
-      function test() {
-        var tabsNewAnim = $('#navbarSupportedContent');
-        var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
-        var activeItemNewAnim = tabsNewAnim.find('.active');
-        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-        var itemPosNewAnimTop = activeItemNewAnim.position();
-        var itemPosNewAnimLeft = activeItemNewAnim.position();
-        $('.hori-selector').css({
-          top: itemPosNewAnimTop.top + 'px',
-          left: itemPosNewAnimLeft.left + 'px',
-          height: activeWidthNewAnimHeight + 'px',
-          width: activeWidthNewAnimWidth + 'px',
+    (function () {
+      'use strict';
+      $(function () {
+        var header = $('.start-style');
+        $(window).scroll(function () {
+          var scroll = $(window).scrollTop();
+
+          if (scroll >= 10) {
+            header.removeClass('start-style').addClass('scroll-on');
+          } else {
+            header.removeClass('scroll-on').addClass('start-style');
+          }
         });
-        $('#navbarSupportedContent').on('click', 'li', function (e) {
-          $('#navbarSupportedContent ul li').removeClass('active');
-          $(this).addClass('active');
-          var activeWidthNewAnimHeight = $(this).innerHeight();
-          var activeWidthNewAnimWidth = $(this).innerWidth();
-          var itemPosNewAnimTop = $(this).position();
-          var itemPosNewAnimLeft = $(this).position();
-          $('.hori-selector').css({
-            top: itemPosNewAnimTop.top + 'px',
-            left: itemPosNewAnimLeft.left + 'px',
-            height: activeWidthNewAnimHeight + 'px',
-            width: activeWidthNewAnimWidth + 'px',
-          });
-        });
-      }
+      });
+
+      //Animation
+
       $(document).ready(function () {
-        setTimeout(function () {
-          test();
-        });
+        $('body.hero-anime').removeClass('hero-anime');
       });
-      $(window).on('resize', function () {
-        setTimeout(function () {
-          test();
-        }, 500);
+
+      //Menu On Hover
+
+      $('body').on('mouseenter mouseleave', '.nav-item', function (e) {
+        if ($(window).width() > 750) {
+          var _d = $(e.target).closest('.nav-item');
+          _d.addClass('show');
+          setTimeout(function () {
+            _d[_d.is(':hover') ? 'addClass' : 'removeClass']('show');
+          }, 1);
+        }
       });
-      $('.navbar-toggler').click(function () {
-        setTimeout(function () {
-          test();
-        });
+
+      //Switch light/dark
+
+      $('#switch').on('click', function () {
+        if ($('body').hasClass('dark')) {
+          $('body').removeClass('dark');
+          $('#switch').removeClass('switched');
+        } else {
+          $('body').addClass('dark');
+          $('#switch').addClass('switched');
+        }
       });
     });
   }
