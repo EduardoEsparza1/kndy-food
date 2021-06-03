@@ -1,11 +1,10 @@
-
 <body class="hero-anime">
   <div class="navigation-wrap bg-light start-header start-style">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <nav class="navbar navbar-expand-md navbar-light">
-
+            <!-- Logo -->
             <a class="navbar-brand" href="https://themeforest.net/user/ig_design/portfolio" target="_blank"><img
                 src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/logo.svg" alt=""></a>
 
@@ -23,12 +22,12 @@
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                     aria-expanded="false">Menú</a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Desayunos</a>
-                    <a class="dropdown-item" href="#">Platos Fuertes</a>
+                    <a class="dropdown-item" >Desayunos</a>
+                    <a class="dropdown-item" >Platos Fuertes</a>
                   </div>
                 </li>
                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                  <a class="nav-link" href="#">Contacto</a>
+                  <a class="nav-link" [routerLink]="['contact']">Contacto</a>
                 </li>
                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                   <a class="nav-link" [routerLink]="['faq']">FAQ</a>
@@ -55,10 +54,6 @@
     </div>
     
   </div>
-  
-
-  <a href="https://themeforest.net/user/ig_design/portfolio" class="link-to-portfolio" target=”_blank”></a>
-
 </body>
 <div class="container principal">
   <router-outlet></router-outlet>

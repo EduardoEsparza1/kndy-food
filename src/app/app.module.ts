@@ -12,7 +12,8 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
-import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';//Pendiente xd
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { ContactComponent } from './contact/contact.component';//Pendiente xd
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';//Pendient
     NavbarComponent,
     HomeComponent,
     LoginComponent,
-    FaqComponent
+    FaqComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
