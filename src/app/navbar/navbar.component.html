@@ -34,8 +34,10 @@
                 </li>
                
 
-                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" *ngIf="auth.user| async; else showLogin" >
-                  <a class="nav-link" (click)="accountService.logout()">Cerrar Sesión</a>
+                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4"
+                    *ngIf="auth.user | async as user; else showLogin"
+                    title="Cerrar Sesión" id = "logout">
+                  <a class="nav-link" (click)="accountService.logout()">{{user.displayName}}</a>
                 </li>
                 <ng-template #showLogin>
                   <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
