@@ -30,7 +30,7 @@ body {
   z-index: 15;
   position: relative;
   background: #FFFFFF;
-  width: 600px;
+  width: 60%;
   height: 580px;
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
@@ -335,4 +335,40 @@ body {
 
 .cent {
   margin: auto;
+  width: 100%;
+}
+
+@media only screen and (max-width: 750px) {
+  /*.cent:last-child {
+    padding-left: 0;
+    width: 100%;
+  }*/
+
+  .form {
+    width: 100%;
+    height: 650px;
+  }
+
+  .Oroption::before {
+    width: 20%;
+    left: 20%;
+  }
+  .Oroption::after {
+    width: 20%;
+    right: 25%;
+    margin-top: -14px;
+  }
+
+  .Oroption {
+    text-align: center;
+  }
+
+  .cent div {
+    width: 100%;
+    padding: 0;
+  }
+
+  .cent > .m-res  {
+    margin-top: 15px;
+  }
 }
