@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ANALYZE_FOR_ENTRY_COMPONENTS, Injectable } from '@angular/core';
 import { OnInit, Input } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
@@ -9,8 +9,17 @@ import * as auth from 'firebase/app'
 })
 export class AccountService {
   @Input() action: string;
+  //Login
   email: string
   pass: string
+
+  //Register
+  nombre: string
+  username: string
+  password: string
+  password2: string
+  correo: string
+
 
   constructor(
     public auth: AngularFireAuth,
@@ -27,9 +36,14 @@ export class AccountService {
 
   customLogin() {
     this.auth.signInWithEmailAndPassword(this.email, this.pass)
-    .then( res => console.log(res))
-    .catch( err => console.log("Error cl: ", err))
-    this.router.navigate(['home'])
+    .then( res => {
+      console.log(res)
+      this.router.navigate(['home'])
+    })
+    .catch( err => {
+      console.log("Error cl: ", err)
+      alert("error")
+    })
   }
 
   logout() {
@@ -38,9 +52,24 @@ export class AccountService {
   }
 
   register() {
-    this.auth.createUserWithEmailAndPassword(this.email, this.pass)
-    .then(user => console.log(user))
-    .catch(err => console.log("Error user: ", err))
-    //this.router.navigate(['profile'])
+
+    if(this.correo != undefined && this.password == this.password2 && this.password != undefined) {
+      alert("correcto")
+
+      this.auth.createUserWithEmailAndPassword(this.correo, this.password)
+      .then(user => {
+        this.auth.currentUser.then(srs =>{
+          srs.updateProfile({
+            displayName: this.nombre
+          })
+        })
+        console.log(user)
+        this.router.navigate(['home'])
+      })
+      .catch(err => console.log("Error user: ", err))
+    } else {
+      alert("mal")
+    }
+
   }
 }

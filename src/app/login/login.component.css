@@ -239,7 +239,7 @@ body {
 .form-panel.two.active {
   left: 10%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
+  cursor: default;
 
 }
 
@@ -331,4 +331,8 @@ body {
   padding: 10px;
   position: absolute;
   margin-top: -12px;      
+}
+
+.cent {
+  margin: auto;
 }
