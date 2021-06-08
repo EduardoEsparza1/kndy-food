@@ -1,0 +1,23 @@
+#accordion{
+    background-color: white; 
+    margin: 30px; 
+    margin-bottom: 90px; 
+}
+
+
+strong{
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.image{
+    background-color: #55595c;
+}
+
+.image img{
+    width: 280px;
+}
