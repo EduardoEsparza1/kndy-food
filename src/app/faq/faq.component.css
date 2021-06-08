@@ -1,7 +1,15 @@
 #accordion{
     background-color: white; 
-    margin: 30px; 
+    margin-left: 30px; 
+    margin-right: 30px;
     margin-bottom: 90px; 
+}
+
+.cajaFaq{
+    background-color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    margin-right: 0px;
 }
 
 strong{
@@ -15,6 +23,8 @@ strong{
 
 .image{
     background-color: #55595c;
+    margin: 30px;
+    margin-left: 0px;
 }
 
 .image img{
