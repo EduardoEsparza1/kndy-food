@@ -1,6 +1,7 @@
 .cajaCont{
     background-color: white;
-    width: 80%; margin: 30px;   
+    width: 90%; 
+    margin: 30px;   
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     margin: 30px;
     margin-bottom: 90px;
@@ -11,9 +12,38 @@
     height: 500px;
 }
 
-table{
-    margin: 50px;
+form, table{
+    margin: 40px;
 }
+
+.form-group label {
+    display: block;
+    margin: 0 0 10px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.form-group input, textarea{
+    outline: none;
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    color: rgba(0, 0, 0, 0.6);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    line-height: inherit;
+    transition: 0.3s ease;
+  }
+
 
 
 .fas{
@@ -29,7 +59,7 @@ table{
     line-height: 2;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    margin-top: 125px;
+    margin-top: 90px;
 }
 
 .redes .fab{
