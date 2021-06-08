@@ -1,0 +1,54 @@
+.cajaCont{
+    background-color: white;
+    width: 80%; margin: 30px;   
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    margin-bottom: 90px;
+}
+
+.operador{
+    width: 450px; 
+    height: 500px;
+}
+
+table{
+    margin: 50px;
+}
+
+
+.fas{
+    margin-right: 30px;
+}
+
+.redes{
+    background-color: #55595c;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-top: 125px;
+}
+
+.redes .fab{
+    font-size: 25px;
+    color: white;
+}
+
+.redes .fa-facebook:hover{
+    color: rgba(66, 183, 245, 0.8);
+}
+
+.redes .fa-instagram:hover{
+    color: pink;
+}
+
+.redes .fa-twitter:hover{
+    color: rgb(8, 220, 248);
+}
+
+.redes .fa-youtube:hover{
+    color: red;
+}
