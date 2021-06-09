@@ -1,63 +1,57 @@
 <body class="hero-anime">
-  <div class="navigation-wrap bg-light start-header start-style">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="navbar navbar-expand-md navbar-light">
-            <!-- Logo -->
-            <a class="navbar-brand" href="https://themeforest.net/user/ig_design/portfolio" target="_blank"><img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/logo.svg" alt=""></a>
+    <div class="navigation-wrap bg-light start-header start-style">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="https://themeforest.net/user/ig_design/portfolio" target="_blank"><img src="/src/assets/jelly.png" alt=""></a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto py-4 py-md-0">
-                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                  <a class="nav-link" [routerLink]="['home']">Inicio</a>
-                </li>
-                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">Menú</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" >Desayunos</a>
-                    <a class="dropdown-item" >Platos Fuertes</a>
-                  </div>
-                </li>
-                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                  <a class="nav-link" [routerLink]="['contact']">Contacto</a>
-                </li>
-                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                  <a class="nav-link" [routerLink]="['faq']">FAQ</a>
-                </li>
-               
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" [routerLink]="['home']">Inicio</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item">Desayunos</a>
+                                        <a class="dropdown-item">Platos Fuertes</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" [routerLink]="['contact']">Contacto</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" [routerLink]="['faq']">FAQ</a>
+                                </li>
 
-                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4"
-                    *ngIf="auth.user | async as user; else showLogin"
-                    title="Cerrar Sesión" id = "logout">
-                  <a class="nav-link" (click)="accountService.logout()">{{user.displayName}}</a>
-                </li>
-                <ng-template #showLogin>
-                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                    <a class="nav-link" [routerLink]="['login']">Iniciar Sesión</a>
-                  </li>
-                </ng-template>
-              </ul>
+
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" *ngIf="auth.user | async as user; else showLogin" title="Cerrar Sesión" id="logout">
+                                    <a class="nav-link" (click)="accountService.logout()">{{user.displayName}}</a>
+                                </li>
+                                <ng-template #showLogin>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" [routerLink]="['login']">Iniciar Sesión</a>
+                                    </li>
+                                </ng-template>
+                            </ul>
+                        </div>
+
+                    </nav>
+
+                </div>
+
             </div>
-            
-          </nav>
-         
+
         </div>
-        
-      </div>
-      
+
     </div>
-    
-  </div>
 </body>
 <div class="container principal">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>
-
