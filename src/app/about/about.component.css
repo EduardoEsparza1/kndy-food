@@ -14,7 +14,7 @@
 
 .cajaAbout2{
     background-color: rgba(255, 192, 203, 0.568);
-    margin: 30px;   
+    margin: 20px;   
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     width: 500px;
     height: 300px;
@@ -39,4 +39,28 @@ strong{
     line-height: 2;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+}
+
+.screen{
+    font-size: 22px;
+    background-color: transparent;
+    border: 0px;
+    color: rgba(0, 0, 0, 0.5);
+}
+  
+  
+.screen:hover{
+    color: rgba(40,167,69);
+}
+
+.screen1{
+    font-size: 22px;
+    background-color: transparent;
+    border: 0px;
+    color: rgba(255, 255, 255, 0.705);
+}
+  
+  
+.screen1:hover{
+    color: rgba(40,167,69);
 }
