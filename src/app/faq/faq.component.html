@@ -1,16 +1,17 @@
-<h2 class="pb-4 mb-4 border-bottom text-center">
-    <span id="f1" class="text-primary" style="font-weight: 700;">PREGUNTAS FRECUENTES</span>
+<h3 class="pb-4 mb-4 border-bottom text-center">
+    <span id="f1" class="text-primary">PREGUNTAS FRECUENTES</span>
     <ng-container *ngIf="validarSpeak.band">
-      <button (click)="playSpeak('f1')" ><i class="fas fa-play-circle"></i></button>
-      <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+      <button (click)="playSpeak('f1')" class="screen"><i class="fas fa-play-circle"></i></button>
+      <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
     </ng-container>
-</h2>
+</h3>
 
 <div class="row">
   <div class=" col">
     <div id="accordion" class="row no-gutters  rounded overflow-hidden flex-md-row  shadow-sm">
       <div class="cajaFaq col d-flex flex-column position-static">
         <div class="card">
+
           <div class="card-header" id="headingOne">
             <table>
               <tr>
@@ -21,8 +22,8 @@
                 </td>
                 <td>
                   <ng-container *ngIf="validarSpeak.band">
-                    <button (click)="playSpeak('f2')" ><i class="fas fa-play-circle"></i></button>
-                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                    <button (click)="playSpeak('f2')" class="screen"><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()"class="screen" ><i class="fas fa-stop-circle"></i></button>
                   </ng-container>
                 </td>
               </tr>
@@ -32,8 +33,8 @@
             <div class="card-body">
               <span id="f3">En esta plataforma puedes checar las delicias con las que contamos en la sucursal también puedes realizar tu apartado para que así cuando llegues a la sucursal tengas la seguridad de que habrá existencias ya que nuestros postres suelen agotarse a la brevedad.     </span>
               <ng-container *ngIf="validarSpeak.band">
-                <button (click)="playSpeak('f3')" ><i class="fas fa-play-circle"></i></button>
-                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                <button (click)="playSpeak('f3')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
               </ng-container>
             </div>
           </div>
@@ -50,8 +51,8 @@
                 </td>
                 <td>
                   <ng-container *ngIf="validarSpeak.band">
-                    <button (click)="playSpeak('f4')" ><i class="fas fa-play-circle"></i></button>
-                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                    <button (click)="playSpeak('f4')" class="screen"><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
                   </ng-container>
                 </td>
               </tr>
@@ -62,8 +63,8 @@
               <span id="f5">Al momento no contamos con entregas a domicilio ya que nuestro personal esta dedicado de lleno a la elaboración de nuestros articulos y de darles la mejor atención cuando nos visiten a la sucursal.
                 Pero no te preocupes, puedes apartar por este medio cualquier producto y recogerlo en el horario que sea flexible a tu horario.</span>
               <ng-container *ngIf="validarSpeak.band">
-                <button (click)="playSpeak('f5')" ><i class="fas fa-play-circle"></i></button>
-                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                <button (click)="playSpeak('f5')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
               </ng-container>
             </div>
           </div>
@@ -80,8 +81,8 @@
                 </td>
                 <td>
                   <ng-container *ngIf="validarSpeak.band">
-                    <button (click)="playSpeak('f6')" ><i class="fas fa-play-circle"></i></button>
-                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                    <button (click)="playSpeak('f6')" class="screen"><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
                   </ng-container>
                 </td>
               </tr>
@@ -92,8 +93,8 @@
               <span id="f7">Realmente puedes refrigerarlo durante algunos días incluso congelarlo pero nosotros te recomendamos refrigerarlo máximo 3 días para que así puedas disfrutar de el sabor fresco que nos caracteriza.</span> <br> 
               <span id="f8">Recuerda siempre refrigerar tus productos.</span>
               <ng-container *ngIf="validarSpeak.band">
-                <button (click)="playSpeak2('f7','f8')" ><i class="fas fa-play-circle"></i></button>
-                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                <button (click)="playSpeak2('f7','f8')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
               </ng-container>
             </div>
           </div>
@@ -110,8 +111,8 @@
                 </td>
                 <td>
                   <ng-container *ngIf="validarSpeak.band">
-                    <button (click)="playSpeak('f9')" ><i class="fas fa-play-circle"></i></button>
-                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                    <button (click)="playSpeak('f9')" class="screen"><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
                   </ng-container>
                 </td>
               </tr>
@@ -122,8 +123,8 @@
               <span id="f10">Guardamos tu producto en la sucursal en un lapso de tres días, pasado este tiempo no podemos asegurarte el estado óptimo de tus productos.</span> <br> 
               <span id="f11">Si no recoges tu pedido no podemos reembolsar tu pago.</span>
               <ng-container *ngIf="validarSpeak.band">
-                <button (click)="playSpeak2('f10','f11')" ><i class="fas fa-play-circle"></i></button>
-                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                <button (click)="playSpeak2('f10','f11')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
               </ng-container>
             </div>
           </div>
@@ -140,8 +141,8 @@
                 </td>
                 <td>
                   <ng-container *ngIf="validarSpeak.band">
-                    <button (click)="playSpeak('f12')" ><i class="fas fa-play-circle"></i></button>
-                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                    <button (click)="playSpeak('f12')" class="screen"><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
                   </ng-container>
                 </td>
               </tr>
@@ -151,8 +152,8 @@
             <div class="card-body">
               <span id="f13">Antes era posible llevar a cabo estas dinamicas pero en la actualidad debido a la pandemia por la Covid-19 nos vimos en la necesidad de suspender estas actividades para así asegurarte que nuestros productos están elaborados con las más estrictas medidas de seguridad.</span> 
               <ng-container *ngIf="validarSpeak.band">
-                <button (click)="playSpeak('f13')" ><i class="fas fa-play-circle"></i></button>
-                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                <button (click)="playSpeak('f13')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
               </ng-container>
             </div>
           </div>
@@ -169,8 +170,8 @@
                 </td>
                 <td>
                   <ng-container *ngIf="validarSpeak.band">
-                    <button (click)="playSpeak('f14')" ><i class="fas fa-play-circle"></i></button>
-                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                    <button (click)="playSpeak('f14')" class="screen"><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
                   </ng-container>
                 </td>
               </tr>
@@ -181,8 +182,8 @@
               <span id="f15">Claro que si.</span><br> 
               <span id="f16">Estas las encuentras día con día en nuestras redes sociales y en la sucursal estas no las puedes apartar por la página web pero en las redes sociales puedes hacer tu apartado.</span>
               <ng-container *ngIf="validarSpeak.band">
-                <button (click)="playSpeak2('f15','f16')" ><i class="fas fa-play-circle"></i></button>
-                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                <button (click)="playSpeak2('f15','f16')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
               </ng-container>
             </div>
           </div>
@@ -199,8 +200,8 @@
                 </td>
                 <td>
                   <ng-container *ngIf="validarSpeak.band">
-                    <button (click)="playSpeak('f17')" ><i class="fas fa-play-circle"></i></button>
-                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                    <button (click)="playSpeak('f17')" class="screen"><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
                   </ng-container>
                 </td>
               </tr>
@@ -210,13 +211,13 @@
             <div class="card-body">
               <span id="f18">A diario contamos con una amplia carta de rebanadas y en nuestras redes sociales son públicadas junto con los precios de cada una ya que suelen variar depende de la decoración y de nuestras creaciones.</span> 
               <ng-container *ngIf="validarSpeak.band">
-                <button (click)="playSpeak('f18')" ><i class="fas fa-play-circle"></i></button>
-                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                <button (click)="playSpeak('f18')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
               </ng-container>
             </div>
           </div>
         </div>
-        
+
     </div>
 
     

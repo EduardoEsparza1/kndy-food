@@ -545,3 +545,13 @@ body.hero-anime #switch {
   border-radius: 50%;
   box-shadow: 0 0 0 20px rgba(12, 12, 12, .1);
 }
+
+.volumen{
+  font-size: 25px;
+}
+
+
+.volumen:hover{
+  font-size: 25px;
+  color:#4285f3;
+}

@@ -16,6 +16,11 @@
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" [routerLink]="['home']">Inicio</a>
                                 </li>
+
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" [routerLink]="['about']">Acerca de</a>
+                                </li>
+
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
                                     <div class="dropdown-menu">
@@ -26,6 +31,7 @@
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" [routerLink]="['contact']">Contacto</a>
                                 </li>
+                                
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" [routerLink]="['faq']">FAQ</a>
                                 </li>
@@ -40,11 +46,11 @@
                                     </li>
                                 </ng-template>
 
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <button (click)="habilitarSpeak()"><i class="fas fa-volume-up"></i></button>
-                                </li>
-
+                                
                             </ul>
+                            <div class=" pl-4 pl-md-0 ml-0 ml-md-4">
+                                <button class="btn btn-light volumen" (click)="habilitarSpeak()"><i class="fas fa-volume-up"></i></button>
+                            </div>
                             
                         </div>
 

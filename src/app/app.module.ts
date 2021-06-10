@@ -13,7 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
-import { ContactComponent } from './contact/contact.component';//Pendiente xd
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';//Pendiente xd
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactComponent } from './contact/contact.component';//Pendiente xd
     HomeComponent,
     LoginComponent,
     FaqComponent,
-    ContactComponent
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
