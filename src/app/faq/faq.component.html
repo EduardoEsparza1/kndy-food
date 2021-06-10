@@ -1,5 +1,9 @@
 <h2 class="pb-4 mb-4 border-bottom text-center">
-    <span class="text-primary" style="font-weight: 700;">PREGUNTAS FRECUENTES</span>
+    <span id="f1" class="text-primary" style="font-weight: 700;">PREGUNTAS FRECUENTES</span>
+    <ng-container *ngIf="validarSpeak.band">
+      <button (click)="playSpeak('f1')" ><i class="fas fa-play-circle"></i></button>
+      <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+    </ng-container>
 </h2>
 
 <div class="row">
@@ -8,113 +12,214 @@
       <div class="cajaFaq col d-flex flex-column position-static">
         <div class="card">
           <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="btn d-flex justify-content-between" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%;">
-                <strong>¿Cómo funciona?</strong><i class="fas fa-plus text-muted"></i>
-              </button>
-            </h5>
+            <table>
+              <tr>
+                <td>
+                  <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <strong id="f2">¿Cómo funciona?</strong>
+                  </button>
+                </td>
+                <td>
+                  <ng-container *ngIf="validarSpeak.band">
+                    <button (click)="playSpeak('f2')" ><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                  </ng-container>
+                </td>
+              </tr>
+            </table>         
           </div>
           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-             En esta plataforma puedes checar las delicias con las que contamos en la sucursal también puedes realizar tu apartado para que así cuando llegues a la sucursal tengas la seguridad de que habrá existencias ya que nuestros postres suelen agotarse a la brevedad.
+              <span id="f3">En esta plataforma puedes checar las delicias con las que contamos en la sucursal también puedes realizar tu apartado para que así cuando llegues a la sucursal tengas la seguridad de que habrá existencias ya que nuestros postres suelen agotarse a la brevedad.     </span>
+              <ng-container *ngIf="validarSpeak.band">
+                <button (click)="playSpeak('f3')" ><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+              </ng-container>
             </div>
           </div>
         </div>
+
         <div class="card">
           <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-              <button class="btn collapsed d-flex justify-content-between" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="width: 100%;">
-                <strong>¿Hay entregas a domicilio?</strong><i class="fas fa-plus text-muted"></i>
-              </button>
-            </h5>
+            <table>
+              <tr>
+                <td>
+                  <button class="btn" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <strong id="f4">¿Hay entregas a domicilio?</strong>
+                  </button>
+                </td>
+                <td>
+                  <ng-container *ngIf="validarSpeak.band">
+                    <button (click)="playSpeak('f4')" ><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                  </ng-container>
+                </td>
+              </tr>
+            </table>         
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              Al momento no contamos con entregas a domicilio ya que nuestro personal esta dedicado de lleno a la elaboración de nuestros articulos y de darles la mejor atención cuando nos visiten a la sucursal.
-              Pero no te preocupes, puedes apartar por este medio cualquier producto y recogerlo en el horario que sea flexible a tu horario.
+              <span id="f5">Al momento no contamos con entregas a domicilio ya que nuestro personal esta dedicado de lleno a la elaboración de nuestros articulos y de darles la mejor atención cuando nos visiten a la sucursal.
+                Pero no te preocupes, puedes apartar por este medio cualquier producto y recogerlo en el horario que sea flexible a tu horario.</span>
+              <ng-container *ngIf="validarSpeak.band">
+                <button (click)="playSpeak('f5')" ><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+              </ng-container>
             </div>
           </div>
         </div>
+
         <div class="card">
           <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-              <button class="btn collapsed d-flex justify-content-between" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="width: 100%;">
-                <strong>¿Cuánto tiempo puedo guardar mi producto antes de comerlo?</strong><i class="fas fa-plus text-muted"></i>
-              </button>
-            </h5>
+            <table>
+              <tr>
+                <td>
+                  <button class="btn" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    <strong id="f6">¿Cuánto tiempo puedo guardar mi producto antes de comerlo?</strong>
+                  </button>
+                </td>
+                <td>
+                  <ng-container *ngIf="validarSpeak.band">
+                    <button (click)="playSpeak('f6')" ><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                  </ng-container>
+                </td>
+              </tr>
+            </table>         
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
-              Realmente puedes refrigerarlo durante algunos días incluso congelarlo pero nosotros te recomendamos refrigerlarlo máximo 3 días para que así puedas disfrutar de el sabor fresco que nos caracteriza.
-             <br> Recuerda siempre refrigerar tus productos.
+              <span id="f7">Realmente puedes refrigerarlo durante algunos días incluso congelarlo pero nosotros te recomendamos refrigerarlo máximo 3 días para que así puedas disfrutar de el sabor fresco que nos caracteriza.</span> <br> 
+              <span id="f8">Recuerda siempre refrigerar tus productos.</span>
+              <ng-container *ngIf="validarSpeak.band">
+                <button (click)="playSpeak2('f7','f8')" ><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+              </ng-container>
             </div>
           </div>
         </div>
+
         <div class="card">
-            <div class="card-header" id="headingFour">
-              <h5 class="mb-0">
-                <button class="btn collapsed d-flex justify-content-between" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="width: 100%;">
-                  <strong>¿Qué sucede si no puedo recoger mi pedido el día pactado?</strong><i class="fas fa-plus text-muted"></i>
-                </button>
-              </h5>
+          <div class="card-header" id="headingFour">
+            <table>
+              <tr>
+                <td>
+                  <button class="btn" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <strong id="f9">¿Qué sucede si no puedo recoger mi pedido el día pactado?</strong>
+                  </button>
+                </td>
+                <td>
+                  <ng-container *ngIf="validarSpeak.band">
+                    <button (click)="playSpeak('f9')" ><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                  </ng-container>
+                </td>
+              </tr>
+            </table>         
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              <span id="f10">Guardamos tu producto en la sucursal en un lapso de tres días, pasado este tiempo no podemos asegurarte el estado óptimo de tus productos.</span> <br> 
+              <span id="f11">Si no recoges tu pedido no podemos reembolsar tu pago.</span>
+              <ng-container *ngIf="validarSpeak.band">
+                <button (click)="playSpeak2('f10','f11')" ><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+              </ng-container>
             </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-              <div class="card-body">
-                Guardamos tu producto en la sucursal en un lapso de tres días, pasado este tiempo no podemos asegurarte el estado óptimo de tus productos.
-                <br>Si no recoges tu pedido no podemos reembolsar tu pago.
-              </div>
-            </div>
+          </div>
         </div>
+
         <div class="card">
-            <div class="card-header" id="headingFive">
-              <h5 class="mb-0">
-                <button class="btn collapsed d-flex justify-content-between" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="width: 100%;">
-                  <strong>¿Puedo ir a observar su trabajo?</strong><i class="fas fa-plus text-muted"></i>
-                </button>
-              </h5>
+          <div class="card-header" id="headingFive">
+            <table>
+              <tr>
+                <td>
+                  <button class="btn" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                    <strong id="f12">¿Puedo ir a observar su trabajo?</strong>
+                  </button>
+                </td>
+                <td>
+                  <ng-container *ngIf="validarSpeak.band">
+                    <button (click)="playSpeak('f12')" ><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                  </ng-container>
+                </td>
+              </tr>
+            </table>         
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+            <div class="card-body">
+              <span id="f13">Antes era posible llevar a cabo estas dinamicas pero en la actualidad debido a la pandemia por la Covid-19 nos vimos en la necesidad de suspender estas actividades para así asegurarte que nuestros productos están elaborados con las más estrictas medidas de seguridad.</span> 
+              <ng-container *ngIf="validarSpeak.band">
+                <button (click)="playSpeak('f13')" ><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+              </ng-container>
             </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-              <div class="card-body">
-                Antes era posible llevar a cabo estas dinamicas pero en la actualidad debido a la pandemia por la Covid-19 nos vimos en la necesidad de suspender estas actividades para así asegurarte que nuestros productos están elaborados con las más estrictas medidas de seguridad.
-              </div>
-            </div>
+          </div>
         </div>
+
         <div class="card">
           <div class="card-header" id="headingSix">
-            <h5 class="mb-0">
-              <button class="btn collapsed d-flex justify-content-between" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" style="width: 100%;">
-                <strong>¿Puedo encontrar sus postres por rebanadas?</strong><i class="fas fa-plus text-muted"></i>
-              </button>
-            </h5>
+            <table>
+              <tr>
+                <td>
+                  <button class="btn" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                    <strong id="f14">¿Puedo encontrar sus postres por rebanadas?</strong>
+                  </button>
+                </td>
+                <td>
+                  <ng-container *ngIf="validarSpeak.band">
+                    <button (click)="playSpeak('f14')" ><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                  </ng-container>
+                </td>
+              </tr>
+            </table>         
           </div>
           <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
             <div class="card-body">
-              Claro que si. <br>
-              Estas las encuentras día con día en nuestras redes sociales y en la sucursal estas no las puedes apartar por la página web pero en las redes sociales puedes hacer tu apartado.
+              <span id="f15">Claro que si.</span><br> 
+              <span id="f16">Estas las encuentras día con día en nuestras redes sociales y en la sucursal estas no las puedes apartar por la página web pero en las redes sociales puedes hacer tu apartado.</span>
+              <ng-container *ngIf="validarSpeak.band">
+                <button (click)="playSpeak2('f15','f16')" ><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+              </ng-container>
             </div>
           </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingSeven">
-          <h5 class="mb-0">
-            <button class="btn collapsed d-flex justify-content-between" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" style="width: 100%;">
-              <strong>¿Qué precio tienen las rebanadas?</strong><i class="fas fa-plus text-muted"></i>
-            </button>
-          </h5>
         </div>
-        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
-          <div class="card-body">
-            A diario contamos con una amplia carta de rebanadas y en nuestras redes sociales son públicadas junto con los precios de cada una ya que suelen variar depende de la decoración y de nuestras creaciones.
+
+        <div class="card">
+          <div class="card-header" id="headingSeven">
+            <table>
+              <tr>
+                <td>
+                  <button class="btn" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                    <strong id="f17">¿Qué precio tienen las rebanadas?</strong>
+                  </button>
+                </td>
+                <td>
+                  <ng-container *ngIf="validarSpeak.band">
+                    <button (click)="playSpeak('f17')" ><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+                  </ng-container>
+                </td>
+              </tr>
+            </table>         
+          </div>
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+            <div class="card-body">
+              <span id="f18">A diario contamos con una amplia carta de rebanadas y en nuestras redes sociales son públicadas junto con los precios de cada una ya que suelen variar depende de la decoración y de nuestras creaciones.</span> 
+              <ng-container *ngIf="validarSpeak.band">
+                <button (click)="playSpeak('f18')" ><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" ><i class="fas fa-stop-circle"></i></button>
+              </ng-container>
+            </div>
           </div>
         </div>
+        
     </div>
-      </div>
 
-      <div class="image d-flex justify-content-center align-items-center">
-        <div class=" d-none d-lg-block">
-          <img src="../../assets/nube.gif" alt="">
-        </div>
-      </div>
+    
     </div>
   </div>
 </div>
