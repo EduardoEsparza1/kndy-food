@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminviewComponent implements OnInit {
 
+  nombre: string
+  descripcion: string
+  precio: number
+  categoria: number
+  existencia: number
+  id: string
+
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addProducto() {
+    alert("xD")
   }
 
 }

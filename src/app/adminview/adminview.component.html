@@ -8,35 +8,35 @@
                 </h3>
                 <div class="form-group">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" [(ngModel)]="nombre">
                 </div>
                 <div class="form-group">
                     <label for="">Precio:</label>
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" [(ngModel)]="precio">
                 </div>
                 <div class="form-group">
                     <label for="select">Categoría:</label>
                     <br>
-                    <select name="select">
-                        <option value="value1" selected>Pasteles</option>
-                        <option value="value2">Galletas</option>
-                        <option value="value3">Gelatinas</option>
+                    <select name="select" [(ngModel)]="categoria">
+                        <option value="1" selected>Pasteles</option>
+                        <option value="2">Galletas</option>
+                        <option value="3">Gelatinas</option>
                       </select>
                 </div>
                 <div class="form-group">
                     <label for="">Descripción:</label>
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" [(ngModel)]="descripcion">
                 </div>
                 <div class="form-group">
                     <label for="">Existencia:</label>
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" [(ngModel)]="existencia">
                 </div>
                 <div class="form-group">
                     <label for="">ID:</label>
-                    <input disabled type="text" class="form-control" >
+                    <input disabled type="text" class="form-control" [(ngModel)]="id">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" type="button" >Agregar</button>
+                    <button class="btn btn-primary" type="button" (click)="addProducto()">Agregar</button>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                       </a>
                     </h5>
                   </div>
-                  <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" style="">
+                  <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" style="">
                     <div class="card-body">
                       <!--Aqui va la tabla de gelatinas-->
                     </div>
@@ -81,7 +81,7 @@
                         </a>
                       </h5>
                     </div>
-                    <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="headingThree" style="">
+                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" style="">
                       <div class="card-body">
                         <!--Tabla de galletas-->
                       </div>

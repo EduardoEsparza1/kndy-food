@@ -1,5 +1,5 @@
-import { ANALYZE_FOR_ENTRY_COMPONENTS, Injectable } from '@angular/core';
-import { OnInit, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/app'
@@ -8,7 +8,7 @@ import * as auth from 'firebase/app'
   providedIn: 'root'
 })
 export class AccountService {
-  @Input() action: string;
+
   //Login
   email: string
   pass: string
@@ -25,13 +25,16 @@ export class AccountService {
   mensaje:string
 
   method = "correo"
-  band: boolean;
+  isAdmin: boolean;
   constructor(
     public auth: AngularFireAuth,
     public router: Router
-  ) { }
+  ) {
+    //this.comprobar()
+  }
 
   ngOnInit(): void {
+    this.comprobar()
   }
 
   loginWithGoogle() {
@@ -41,10 +44,10 @@ export class AccountService {
 
   comprobar(){
     if(this.email=='admin@kndyfood.com' && this.pass=='equipo' || this.correo=='admin@kndyfood.com'){
-     this.band=true;
+     this.isAdmin=true;
     }else{
-      this.band=false;
-    }
+      this.isAdmin=false;
+    }//Corregir validación
   }
 
   customLogin() {
@@ -63,7 +66,7 @@ export class AccountService {
   logout() {
     this.auth.signOut();
     this.router.navigate(['home'])
-    this.band = false
+    this.isAdmin = false
   }
 
   register() {
