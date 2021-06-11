@@ -20,6 +20,11 @@ export class AccountService {
   password2: string
   correo: string
 
+  //Contacto
+  nombreContact: string
+  correoContact: string
+  mensaje:string
+
   method = "correo"
   band: boolean;
   constructor(
@@ -91,5 +96,15 @@ export class AccountService {
 
   showCorreo() {
     this.method = "correo"
+  }
+
+  contacto() {
+
+    if(this.nombreContact != undefined && this.correoContact != undefined ) {
+      alert("correcto")
+    } else {
+      alert("Completa todos los campos")
+    }
+
   }
 }
