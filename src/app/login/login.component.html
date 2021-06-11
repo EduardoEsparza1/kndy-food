@@ -29,7 +29,9 @@
               [(ngModel)]='phoneNumber' required="required" autocomplete="true" placeholder="+524491234567"/></div>
           <div id="recaptcha-container"></div>
           <br>
-          <div class="form-group"><button type="button" (click)="sendOTP()">Enviar Código</button></div>
+          <div class="form-group"><button type="button" (click)="sendOTP()" [disabled]="disableOTPSendBtn">Enviar Código</button></div>
+          <p>{{disableOTPSendBtn}}
+          </p>
           <br>
           <!-- Verification Code -->
           <ng-container *ngIf="!noSent">

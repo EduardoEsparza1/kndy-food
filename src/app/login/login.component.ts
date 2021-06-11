@@ -87,6 +87,10 @@ export class LoginComponent implements OnInit {
           user.updateProfile({
             displayName: this.name
           })
+          this.name = ""
+          this.phoneNumber = ""
+          this.otp = ""
+          this.disableOTPSendBtn = true
         })
         this.accountService.method = 'correo'
         this.router.navigate(['home'])

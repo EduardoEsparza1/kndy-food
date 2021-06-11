@@ -15,7 +15,6 @@ export class AccountService {
 
   //Register
   nombre: string
-  username: string
   password: string
   password2: string
   correo: string
@@ -52,6 +51,7 @@ export class AccountService {
     this.auth.signInWithEmailAndPassword(this.email, this.pass)
     .then( res => {
       console.log(res)
+      this.cleanForms()
       this.router.navigate(['home'])
     })
     .catch( err => {
@@ -76,12 +76,12 @@ export class AccountService {
             displayName: this.nombre
             
           })
+          this.cleanForms()
         })
         console.log(user)
         this.router.navigate(['home'])
       })
       .catch(err => {
-        alert("No weeeeeeeeeeeeeeeeeeee")
         console.log("Error user: ", err)
       })
     } else {
@@ -106,5 +106,17 @@ export class AccountService {
       alert("Completa todos los campos")
     }
 
+  }
+
+  cleanForms() {
+    //Registro
+    this.correo = ""
+    this.nombre = ""
+    this.password = ""
+    this.password2 = ""
+
+    //Login
+    this.email = ""
+    this.pass = ""
   }
 }
