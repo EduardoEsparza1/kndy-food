@@ -14,14 +14,16 @@
 
 .cajaAbout2{
     background-color: rgba(255, 192, 203, 0.568);
-    margin: 20px;   
+    margin: 0px;   
+    margin-top: 50px;
+    margin-bottom: 50px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    width: 470px;
+    width: 390px;
     height: 300px;
 }
 
 img{
-    margin: 20px;
+    margin: 15px;
 }
 
 h5{

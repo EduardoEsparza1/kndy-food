@@ -31,7 +31,7 @@ body {
   position: relative;
   background: #FFFFFF;
   width: 60%;
-  height: 580px;
+  height: auto;
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -325,11 +325,11 @@ body {
 
 .red-social{
   width: 80px;
-  left: 30%;
+  /*left: 30%;*/
   margin-top: 10px;
   cursor: pointer;
   padding: 10px;
-  position: absolute;
+  /*position: absolute;*/
   margin-top: -12px;      
 }
 
@@ -371,4 +371,9 @@ body {
   .cent > .m-res  {
     margin-top: 15px;
   }
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
 }
