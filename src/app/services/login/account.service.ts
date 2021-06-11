@@ -35,6 +35,14 @@ export class AccountService {
     this.router.navigate(['home'])
   }
 
+  comprobar(){
+    if(this.email=='admin@kndyfood.com' || this.correo=='admin@kndyfood.com'){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   customLogin() {
     this.auth.signInWithEmailAndPassword(this.email, this.pass)
     .then( res => {
