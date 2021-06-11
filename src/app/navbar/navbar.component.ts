@@ -15,7 +15,6 @@ export class NavbarComponent implements OnInit {
 
   validarSpeak: GlobalService; 
 
-  aux: AccountService;
 
   constructor(
     public auth: AngularFireAuth,
