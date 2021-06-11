@@ -20,6 +20,7 @@ export class AccountService {
   password2: string
   correo: string
 
+  method = "correo"
 
   constructor(
     public auth: AngularFireAuth,
@@ -55,7 +56,6 @@ export class AccountService {
 
     if(this.correo != undefined && this.password == this.password2 && this.password != undefined) {
       alert("correcto")
-
       this.auth.createUserWithEmailAndPassword(this.correo, this.password)
       .then(user => {
         this.auth.currentUser.then(srs =>{
@@ -66,10 +66,21 @@ export class AccountService {
         console.log(user)
         this.router.navigate(['home'])
       })
-      .catch(err => console.log("Error user: ", err))
+      .catch(err => {
+        alert("No weeeeeeeeeeeeeeeeeeee")
+        console.log("Error user: ", err)
+      })
     } else {
       alert("mal")
     }
 
+  }
+
+  showSMS() {
+    this.method = "sms"
+  }
+
+  showCorreo() {
+    this.method = "correo"
   }
 }
