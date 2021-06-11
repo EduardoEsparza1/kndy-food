@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyAp-GV-Q9-5ind-iBvPmJtGokvdJmP7uUo",
-    authDomain: "kndy-food.firebaseapp.com",
-    projectId: "kndy-food",
-    storageBucket: "kndy-food.appspot.com",
-    messagingSenderId: "9031685294",
-    appId: "1:9031685294:web:0dbfa88257ca131314893f"
+    apiKey: "AIzaSyBLxnK4GD-gUOolLEJqKPsYnbee6bHK0u8",
+    authDomain: "kndy-food-8c7ba.firebaseapp.com",
+    projectId: "kndy-food-8c7ba",
+    storageBucket: "kndy-food-8c7ba.appspot.com",
+    messagingSenderId: "699422981465",
+    appId: "1:699422981465:web:c87b8b38743efd28d16048",
+    measurementId: "G-B90PFECV01"
   }
 };
 
