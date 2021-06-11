@@ -63,7 +63,7 @@ export class AccountService {
   logout() {
     this.auth.signOut();
     this.router.navigate(['home'])
-    //this.band = false
+    this.band = false
   }
 
   register() {
