@@ -14,7 +14,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';//Pendiente xd
+import { AboutComponent } from './about/about.component';
+import { AdminviewComponent } from './adminview/adminview.component';//Pendiente xd
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AboutComponent } from './about/about.component';//Pendiente xd
     LoginComponent,
     FaqComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    AdminviewComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AccountService } from '../services/login/account.service';
 import { GlobalService } from '../services/screenReader/global.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 declare var $: any;
 @Component({
@@ -12,6 +13,9 @@ declare var $: any;
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+
+  aux:AccountService;
+  band:boolean;
 
   validarSpeak: GlobalService; 
 
@@ -23,6 +27,7 @@ export class NavbarComponent implements OnInit {
   ){
     this.validarSpeak=global;
   }
+  
 
   ngOnInit(): void {
   }
@@ -30,5 +35,9 @@ export class NavbarComponent implements OnInit {
   habilitarSpeak(){
     this.global.band=!this.global.band; 
   }
+  comprobar(){
+    
+  }
+  
 
 }

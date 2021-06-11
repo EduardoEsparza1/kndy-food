@@ -20,6 +20,8 @@ export class AccountService {
   password2: string
   correo: string
 
+  band:boolean=false
+
 
   constructor(
     public auth: AngularFireAuth,
@@ -33,6 +35,14 @@ export class AccountService {
     this.auth.signInWithPopup(new auth.default.auth.GoogleAuthProvider)
     this.router.navigate(['home'])
   }
+  comprobar(){
+    if(this.email=='admin@gmail.com'){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
 
   customLogin() {
     this.auth.signInWithEmailAndPassword(this.email, this.pass)
