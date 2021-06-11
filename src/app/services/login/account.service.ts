@@ -21,7 +21,7 @@ export class AccountService {
   correo: string
 
   method = "correo"
-
+  band: boolean;
   constructor(
     public auth: AngularFireAuth,
     public router: Router
@@ -36,10 +36,10 @@ export class AccountService {
   }
 
   comprobar(){
-    if(this.email=='admin@kndyfood.com' || this.correo=='admin@kndyfood.com'){
-      return true;
+    if(this.email=='admin@kndyfood.com' && this.pass=='equipo' || this.correo=='admin@kndyfood.com'){
+     this.band=true;
     }else{
-      return false;
+      this.band=false;
     }
   }
 
@@ -69,6 +69,7 @@ export class AccountService {
         this.auth.currentUser.then(srs =>{
           srs.updateProfile({
             displayName: this.nombre
+            
           })
         })
         console.log(user)
