@@ -3,6 +3,7 @@ import { OnInit, Input } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/app'
+import { runInThisContext } from 'vm';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +64,7 @@ export class AccountService {
   logout() {
     this.auth.signOut();
     this.router.navigate(['home'])
+    this.band = false
   }
 
   register() {
