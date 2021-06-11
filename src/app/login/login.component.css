@@ -371,6 +371,11 @@ body {
   .cent > .m-res  {
     margin-top: 15px;
   }
+
+  #recaptcha-container {
+    transform: scale(0.77);
+    transform-origin: 0 0;
+  }
 }
 
 .links {
