@@ -5,7 +5,6 @@ import { FaqComponent } from './faq/faq.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
-import { AdminviewComponent } from './adminview/adminview.component';
 
 
 const routes: Routes = [
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'adminview', component: AdminviewComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
