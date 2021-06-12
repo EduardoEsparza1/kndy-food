@@ -17,10 +17,6 @@
                                     <a class="nav-link" [routerLink]="['home']">Inicio</a>
                                 </li>
 
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" [routerLink]="['about']">Acerca de</a>
-                                </li>
-
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
                                     <div class="dropdown-menu">
@@ -29,27 +25,35 @@
                                         <a class="dropdown-item">Galletas.</a>
                                     </div>
                                 </li>
+
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" [routerLink]="['faq']">FAQ</a>
+                                </li>
+
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" [routerLink]="['contact']">Contacto</a>
                                 </li>
                                 
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" [routerLink]="['faq']">FAQ</a>
+                                    <a class="nav-link" [routerLink]="['about']">Acerca de</a>
                                 </li>
 
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" *ngIf="accountService.isAdmin">
                                     <a class="nav-link" [routerLink]="['adminview']">Editar</a>
                                 </li>
 
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" *ngIf="auth.user | async as user; else showLogin" title="Cerrar Sesión" id="logout">
-                                    <a class="nav-link" (click)="accountService.logout()">{{user.displayName}}</a>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active" *ngIf="auth.user | async as user; else showLogin" id="logout">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item">Perfil.</a>
+                                        <a class="dropdown-item" (click)="accountService.logout()">Cerrar Sesión.</a>
+                                    </div>
                                 </li>
                                 <ng-template #showLogin>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                         <a class="nav-link" [routerLink]="['login']">Iniciar Sesión</a>
                                     </li>
                                 </ng-template>
-
                                 
                             </ul>
                             <div class=" pl-4 pl-md-0 ml-0 ml-md-4">
