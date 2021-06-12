@@ -1,94 +1,175 @@
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-md-6">
-            <!--Formulario-->
-            <div class="container">
-                <h3>
-                    Agregar Productos.
-                </h3>
-                <div class="form-group">
-                    <label for="">Nombre:</label>
-                    <input type="text" class="form-control" [(ngModel)]="nombre">
-                </div>
-                <div class="form-group">
-                    <label for="">Precio:</label>
-                    <input type="number" class="form-control" [(ngModel)]="precio">
-                </div>
-                <div class="form-group">
-                    <label for="select">Categoría:</label>
-                    <br>
-                    <select name="select" [(ngModel)]="categoria">
-                        <option value="1" selected>Pasteles</option>
-                        <option value="2">Galletas</option>
-                        <option value="3">Gelatinas</option>
-                      </select>
-                </div>
-                <div class="form-group">
-                    <label for="">Descripción:</label>
-                    <input type="text" class="form-control" [(ngModel)]="descripcion">
-                </div>
-                <div class="form-group">
-                    <label for="">Existencia:</label>
-                    <input type="number" class="form-control" [(ngModel)]="existencia">
-                </div>
-                <div class="form-group">
-                    <label for="">ID:</label>
-                    <input disabled type="text" class="form-control" [(ngModel)]="id">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="button" (click)="addProducto()">Agregar</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <!--Productos-->
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <!--Formulario-->
+      <div class="container">
+        <h3>
+          Agregar Productos.
+        </h3>
+        <form (ngSubmit)="addProducto(newProductForm.value)" [formGroup]="newProductForm">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" class="form-control" formControlName="nombre">
+            <small *ngIf="newProductForm.get('nombre').errors && triedAdd">Ingrese un nombre</small>
+          </div>
 
-            <div id="accordion" role="tablist">
-                <div class="card">
-                  <div class="card-header" role="tab" id="headingOne">
-                    <h5 class="mb-0">
-                      <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                        Pasteles.
-                      </a>
-                    </h5>
-                  </div>
-              
-                  <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" style="">
-                    <div class="card-body">
-                      <!--Aqui va la tabla de pasteles-->
-                    </div>
-                  </div>
-                </div>
-               <div class="card">
-                  <div class="card-header" role="tab" id="headingTwo">
-                    <h5 class="mb-0">
-                      <a class="" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        Gelatinas.
-                      </a>
-                    </h5>
-                  </div>
-                  <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" style="">
-                    <div class="card-body">
-                      <!--Aqui va la tabla de gelatinas-->
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingThree">
-                      <h5 class="mb-0">
-                        <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                          Galletas.
-                        </a>
-                      </h5>
-                    </div>
-                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" style="">
-                      <div class="card-body">
-                        <!--Tabla de galletas-->
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              
-        </div>
+          <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" class="form-control" formControlName="precio">
+            <small *ngIf="newProductForm.get('precio').errors?.required && triedAdd">Ingrese un precio</small>
+            <small *ngIf="newProductForm.get('precio').errors?.min && triedAdd">El precio debe ser mayor a 0</small>
+          </div>
+
+          <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <br>
+            <select id="categoria" formControlName="categoria" class="form-control">
+              <option value="0" selected disabled>Seleccione</option>
+              <option value="1">Pasteles</option>
+              <option value="2">Gelatinas</option>
+              <option value="3">Galletas</option>
+            </select>
+            <small *ngIf="newProductForm.get('categoria').errors?.min && triedAdd">Seleccione una categoria</small>
+          </div>
+
+          <div class="form-group">
+            <label for="">Descripción:</label>
+            <input type="text" class="form-control" formControlName="descripcion">
+            <small *ngIf="newProductForm.get('descripcion').errors && triedAdd">Ingrese una descripcion</small>
+          </div>
+
+          <div class="form-group">
+            <label for="">Existencia:</label>
+            <input type="number" class="form-control" formControlName="existencia">
+            <small *ngIf="newProductForm.get('existencia').errors?.required && triedAdd">Ingrese la existencia</small>
+            <small *ngIf="newProductForm.get('existencia').errors?.min && triedAdd">La existencia debe ser mayor o igual que 0</small>
+          </div>
+
+          <div class="form-group" *ngIf="accion==1">
+            <label for="">ID:</label>
+            <input disabled type="text" class="form-control" formControlName="id">
+          </div>
+
+          <div class="form-group buttons">
+            <input type="submit" class="btn" [ngClass]="accion == 0 ? 'btn-primary' : 'btn-success'" [value]="accion==0? 'Agregar' : 'Guardar'">
+            <input type="reset" class="btn btn-secondary" value="Cancelar" (click)="cancel()">
+            <input type="button" class="btn btn-danger" value="Eliminar" *ngIf="accion == 1" (click)="eliminarProducto()">
+          </div>
+        </form>
+      </div>
     </div>
+    <div class="col-md-6">
+      <!--Productos-->
+
+      <div id="accordion" role="tablist">
+        <div class="card">
+          <div class="card-header" role="tab" id="headingOne">
+            <h5 class="mb-0">
+              <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
+                class="collapsed">
+                Pasteles.
+              </a>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+            <div class="card-body">
+              <h4 class="card-title" *ngIf="pasteles.length == 0; else tablaPasteles">No hay pasteles disponibles</h4>
+              <ng-template #tablaPasteles>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Existencia</th>
+                      <th>Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let pastel of pasteles" (click)="editarProducto(pastel.id)">
+                      <td>{{pastel.data.nombre}}</td>
+                      <td>{{pastel.data.descripcion}}</td>
+                      <td>{{pastel.data.existencia}}</td>
+                      <td>${{pastel.data.precio}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+              <a class="" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Gelatinas.
+              </a>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="card-body">
+              <h4 class="card-title" *ngIf="gelatinas.length == 0; else tablaGelatinas">No hay gelatinas disponibles</h4>
+              <ng-template #tablaGelatinas>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Existencia</th>
+                      <th>Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let gelatina of gelatinas" (click)="editarProducto(gelatina.id)">
+                      <td>{{gelatina.data.nombre}}</td>
+                      <td>{{gelatina.data.descripcion}}</td>
+                      <td>{{gelatina.data.existencia}}</td>
+                      <td>${{gelatina.data.precio}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" role="tab" id="headingThree">
+            <h5 class="mb-0">
+              <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true"
+                aria-controls="collapseThree">
+                Galletas.
+              </a>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="card-body">
+              <!--Tabla de galletas-->
+              <h4 class="card-title" *ngIf="galletas.length == 0; else tablaGalletas">No hay galletas disponibles</h4>
+              <ng-template #tablaGalletas>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Existencia</th>
+                      <th>Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let galleta of galletas" (click)="editarProducto(galleta.id)">
+                      <td>{{galleta.data.nombre}}</td>
+                      <td>{{galleta.data.descripcion}}</td>
+                      <td>{{galleta.data.existencia}}</td>
+                      <td>${{galleta.data.precio}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
