@@ -30,24 +30,25 @@ export class AccountService {
     public auth: AngularFireAuth,
     public router: Router
   ) {
-    //this.comprobar()
+    this.isAdminUser()
   }
 
   ngOnInit(): void {
-    this.comprobar()
+    
   }
+
 
   loginWithGoogle() {
     this.auth.signInWithPopup(new auth.default.auth.GoogleAuthProvider)
     this.router.navigate(['home'])
   }
 
-  comprobar(){
-    if(this.email=='admin@kndyfood.com' && this.pass=='equipo' || this.correo=='admin@kndyfood.com'){
-     this.isAdmin=true;
-    }else{
-      this.isAdmin=false;
-    }//Corregir validación
+  isAdminUser(){
+
+    this.auth.user.subscribe((user)=>{
+      this.isAdmin = user.email == "admin@kndyfood.com"
+    })
+
   }
 
   customLogin() {
@@ -55,6 +56,7 @@ export class AccountService {
     .then( res => {
       console.log(res)
       this.cleanForms()
+      this.isAdminUser()
       this.router.navigate(['home'])
     })
     .catch( err => {
@@ -83,6 +85,7 @@ export class AccountService {
           this.cleanForms()
         })
         console.log(user)
+        this.isAdminUser()
         this.router.navigate(['home'])
       })
       .catch(err => {

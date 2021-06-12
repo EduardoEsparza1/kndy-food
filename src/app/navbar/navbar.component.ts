@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   habilitarSpeak(){
     this.global.band=!this.global.band; 
   }
