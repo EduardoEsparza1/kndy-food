@@ -14,7 +14,7 @@ declare var $: any;
 export class NavbarComponent implements OnInit {
 
   validarSpeak: GlobalService; 
-  
+  hola: string
 
   constructor(
     public auth: AngularFireAuth,

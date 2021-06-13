@@ -33,7 +33,8 @@ export class MenuComponent implements OnInit {
 
   }
   
-  
-  
+  addToCart(documentId) {
+    alert(documentId)
+  }
 
 }
