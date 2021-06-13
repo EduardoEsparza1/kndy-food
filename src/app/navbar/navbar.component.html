@@ -7,6 +7,10 @@
                         <!-- Logo -->
                         <a class="navbar-brand" [routerLink]="['home']" ><img src="../../assets/jelly.png" alt="logo"></a>
 
+                        <div class=" pl-4 pl-md-0 ml-0 ml-md-4">
+                            <button class="btn btn-light volumen" (click)="habilitarSpeak()"><i class="fas fa-volume-up"></i></button>
+                        </div>
+
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,9 +61,7 @@
                                 </ng-template>
                                 
                             </ul>
-                            <div class=" pl-4 pl-md-0 ml-0 ml-md-4">
-                                <button class="btn btn-light volumen" (click)="habilitarSpeak()"><i class="fas fa-volume-up"></i></button>
-                            </div>
+                            
                             
                         </div>
 
