@@ -19,6 +19,7 @@ import { AboutComponent } from './about/about.component';
 import { AdminviewComponent } from './adminview/adminview.component';
 import { WindowService } from './services/window/window.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FaqComponent,
     ContactComponent,
     AboutComponent,
-    AdminviewComponent
+    AdminviewComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
