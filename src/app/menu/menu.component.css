@@ -1,3 +1,13 @@
 .text-primary {
     text-transform: uppercase;
 }
+
+.card {
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  .card-img-top {
+    width: 200px;
+    height: 200px;
+    align-self: center;
+  }

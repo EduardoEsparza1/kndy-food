@@ -30,6 +30,7 @@ export class AccountService {
 
   categoria: string;
   idCategoria: number;
+  uid: string
 
 
   constructor(
@@ -66,9 +67,9 @@ export class AccountService {
   isAdminUser(){
     
     this.auth.user.subscribe((user)=>{
+      this.uid = user.uid
       this.isAdmin = user!=null && user.email == "admin@kndyfood.com"
     })
-
   }
 
   customLogin() {
@@ -89,6 +90,7 @@ export class AccountService {
     this.auth.signOut();
     this.router.navigate(['home'])
     this.isAdmin = false
+    this.uid = null
   }
 
   register() {

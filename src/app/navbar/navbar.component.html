@@ -5,15 +5,19 @@
                 <div class="col-12">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <!-- Logo -->
-                        <a class="navbar-brand" [routerLink]="['home']" ><img src="../../assets/jelly.png" alt="logo"></a>
+                        <a class="navbar-brand" [routerLink]="['home']"><img src="../../assets/jelly.png"
+                                alt="logo"></a>
 
                         <div class=" pl-4 pl-md-0 ml-0 ml-md-4">
-                            <button class="btn btn-light volumen" (click)="habilitarSpeak()"><i class="fas fa-volume-up"></i></button>
+                            <button class="btn btn-light volumen" (click)="habilitarSpeak()"><i
+                                    class="fas fa-volume-up"></i></button>
                         </div>
 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto py-4 py-md-0">
@@ -22,12 +26,16 @@
                                 </li>
 
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d1" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d1" role="button"
+                                        aria-haspopup="true" aria-expanded="false">Menú</a>
                                     <div class="dropdown-menu" id="d1">
-                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(1)">Pasteles.</a>
-                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(2)">Gelatinas.</a>
-                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(3)">Galletas.</a>
-                                    
+                                        <a class="dropdown-item" [routerLink]="['menu']"
+                                            (click)="accountService.cambioCategoria(1)">Pasteles.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']"
+                                            (click)="accountService.cambioCategoria(2)">Gelatinas.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']"
+                                            (click)="accountService.cambioCategoria(3)">Galletas.</a>
+
                                     </div>
                                 </li>
 
@@ -38,7 +46,7 @@
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" [routerLink]="['contact']">Contacto</a>
                                 </li>
-                                
+
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" [routerLink]="['about']">Acerca de</a>
                                 </li>
@@ -47,26 +55,29 @@
                                     <a class="nav-link" [routerLink]="['adminview']">Editar</a>
                                 </li>
 
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active" *ngIf="auth.user | async as user; else showLogin" id="logout">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d2" role="button" aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active"
+                                    *ngIf="auth.user | async as user; else showLogin" id="logout">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d2" role="button"
+                                        aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
                                     <div class="dropdown-menu" id="d2">
                                         <a class="dropdown-item">Perfil.</a>
                                         <a class="dropdown-item" (click)="accountService.logout()">Cerrar Sesión.</a>
                                     </div>
+
+                                    <!-- Carrito -->
+                                    <a class="nav-link pl-4 pl-md-0 ml-0 ml-md-4" data-toggle="modal"
+                                        data-target="#cart"><i class="fa fa-shopping-cart"></i><span
+                                            class="badge">{{carrito.length}}</span></a>
+
                                 </li>
                                 <ng-template #showLogin>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                         <a class="nav-link" [routerLink]="['login']">Iniciar Sesión</a>
                                     </li>
-
-                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                        <a class="nav-link"><i class="fa fa-shopping-cart"></i><span class="badge">3</span></a>
-                                    </li>
                                 </ng-template>
-                                
+
                             </ul>
-                            <!-- Carrito -->
-                            
+
                         </div>
 
                     </nav>
@@ -81,4 +92,50 @@
 </body>
 <div class="container principal">
     <router-outlet></router-outlet>
+</div>
+
+<!-- Modal de Carrito -->
+
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="auth.user | async as user;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" class="text-primary" id="exampleModalLabel">Carrito</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="carrito.length > 0; else emptyCart">
+                    <table class="show-cart table">
+                        <tr>
+                            <td>cartArray[i].name</td>
+                            <td>cartArray[i].price</td>
+                            <td>
+                                <div class='input-group'>
+                                    <button class='minus-item input-group-addon btn btn-primary'
+                                        data-name=" + cartArray[i].name + ">-</button>
+                                    <input type='number' class='item-count form-control'
+                                        data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>
+                                    <button class='plus-item btn btn-primary input-group-addon'
+                                        data-name=" + cartArray[i].name + ">+</button>
+                                </div>
+                            </td>
+                            <td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button>
+                            </td>
+                            <td> = cartArray[i].total</td>
+                        </tr>
+                    </table>
+                    <div>Total price: $<span class="total-cart"></span></div>
+                </div>
+                <ng-template #emptyCart>
+                    no hay usuario ¿?
+                </ng-template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Order now</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -9,6 +9,8 @@ export class FirestoreService {
 
   constructor(private firestore: AngularFirestore) { }
 
+  //PRODUCTOS
+
   //Nuevo Producto
   public newProducto(
     data: {
@@ -21,7 +23,7 @@ export class FirestoreService {
   ) {
     return this.firestore.collection('productos').add(data)
   }
-
+  
   //Obtener todos los productos
   public getProductos() {
     return this.firestore.collection('productos').snapshotChanges()
@@ -38,9 +40,28 @@ export class FirestoreService {
     return this.firestore.collection('productos').doc(documentId).set(data);
   }
   
-  //Elimina un gato
+  //Elimina un producto
   public deleteProducto(documentId: string) {
     return this.firestore.collection('productos').doc(documentId).delete()
+  }
+
+  //CARRITO
+
+  //Obtener carrito
+  public getCart(uid: string) {
+    alert(uid)
+    return this.firestore.collection('carrito', data => {
+      return data.where('uid', '==', uid)
+    }).snapshotChanges()
+  }
+
+  //Añadir elemento
+  addToCart(data: {
+    idProducto: string,
+    uid: string,
+    cantidad: number
+  }) {
+    this.firestore.collection('carrito').add(data)
   }
 
 }

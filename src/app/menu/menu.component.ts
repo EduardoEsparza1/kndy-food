@@ -1,5 +1,6 @@
 import { variable } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirestoreService } from '../services/firestore/firestore.service';
 import { AccountService } from '../services/login/account.service';
 
@@ -12,8 +13,10 @@ export class MenuComponent implements OnInit {
 
   constructor(
     public accountService: AccountService,
-    private firestoreService: FirestoreService
+    private firestoreService: FirestoreService,
+    private router: Router
     ) {
+      alert("xd")
   }
 
   productos = []
@@ -34,7 +37,19 @@ export class MenuComponent implements OnInit {
   }
   
   addToCart(documentId) {
-    alert(documentId)
+    if(this.accountService.uid == null) {//No ha iniciado sesión
+      this.router.navigate(['login'])
+      return
+    }
+    //Con sesión iniciada
+    let data = {
+      uid:this.accountService.uid,
+      idProducto: documentId,
+      cantidad: 1
+    }
+
+    this.firestoreService.addToCart(data)
+    alert("uid: " + this.accountService.uid + ", idProducto: " + documentId)
   }
 
 }
