@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { AdminviewComponent } from './adminview/adminview.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'adminview', component: AdminviewComponent },
+  { path: 'menu', component: MenuComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
