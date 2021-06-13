@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/app'
+import { isError } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,8 @@ export class AccountService {
   method = "correo"
   isAdmin: boolean;
 
-  opcion:string;
+  categoria: string;
+  idCategoria: number;
 
 
   constructor(
@@ -35,23 +37,24 @@ export class AccountService {
     public router: Router
   ) {
     this.isAdminUser()
+    this.idCategoria = 1
+    this.categoria = 'pasteles'
   }
 
   ngOnInit(): void {
     
   }
 
-  cambio(numero){
-    if(numero==1){
-      this.opcion='pasteles';
+  cambioCategoria(cat){
+    if(cat == 1){
+      this.categoria = 'pasteles';
+      
+    } else if(cat == 2){
+      this.categoria = 'gelatinas';
     }
-    if(numero==2){
-      this.opcion='gelatinas';
-    }
-    if(numero==3){
-      this.opcion='galletas';
-    }
-    return this.opcion;
+    else this.categoria = 'galletas';
+
+    this.idCategoria = cat
   }
 
 
@@ -61,9 +64,9 @@ export class AccountService {
   }
 
   isAdminUser(){
-
+    
     this.auth.user.subscribe((user)=>{
-      this.isAdmin = user.email == "admin@kndyfood.com"
+      this.isAdmin = user!=null && user.email == "admin@kndyfood.com"
     })
 
   }

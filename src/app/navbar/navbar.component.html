@@ -18,11 +18,11 @@
                                 </li>
 
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambio(1)">Pasteles.</a>
-                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambio(2)">Gelatinas.</a>
-                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambio(3)">Galletas.</a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d1" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
+                                    <div class="dropdown-menu" id="d1">
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(1)">Pasteles.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(2)">Gelatinas.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(3)">Galletas.</a>
                                     
                                     </div>
                                 </li>
@@ -44,8 +44,8 @@
                                 </li>
 
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active" *ngIf="auth.user | async as user; else showLogin" id="logout">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
-                                    <div class="dropdown-menu">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d2" role="button" aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
+                                    <div class="dropdown-menu" id="d2">
                                         <a class="dropdown-item">Perfil.</a>
                                         <a class="dropdown-item" (click)="accountService.logout()">Cerrar Sesión.</a>
                                     </div>

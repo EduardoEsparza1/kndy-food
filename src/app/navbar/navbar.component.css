@@ -447,6 +447,7 @@ body.hero-anime #switch {
 .dropdown-item:focus {
   color: #fff;
   background-color:#4285f3;
+  cursor: pointer;
 }
 
 /* #Media
