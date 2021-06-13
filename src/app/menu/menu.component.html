@@ -7,3 +7,56 @@
 <div *ngIf="accountService.opcion=='galletas'">
     <p>Hola soy las Galletas</p>
 </div>
+
+
+<div *ngIf="accountService.opcion=='pasteles'">
+    <h3 class="pb-4 mb-4 border-bottom text-center">
+        <span class="text-primary" style="font-weight: 700;">PASTELES.</span>
+    </h3>
+
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Titulo de Pastel</h4>
+                <p class="card-text">Descripcion</p>
+                <p class="card-text">Precio</p>
+                <button type="button" class="btn btn-outline-info">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div *ngIf="accountService.opcion=='gelatinas'">
+    <h3 class="pb-4 mb-4 border-bottom text-center">
+        <span class="text-primary" style="font-weight: 700;">GELATINAS.</span>
+    </h3>
+
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Titulo de la gelatina</h4>
+                <p class="card-text">Descripcion</p>
+                <p class="card-text">Precio</p>
+                <button type="button" class="btn btn-outline-info">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="accountService.opcion=='galletas'">
+    <h3 class="pb-4 mb-4 border-bottom text-center">
+        <span class="text-primary" style="font-weight: 700;">GALLETAS.</span>
+    </h3>
+
+
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Titulo de la galleta</h4>
+                <p class="card-text">Descripcion</p>
+                <p class="card-text">Precio</p>
+                <button type="button" class="btn btn-outline-info">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
