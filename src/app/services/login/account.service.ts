@@ -26,6 +26,10 @@ export class AccountService {
 
   method = "correo"
   isAdmin: boolean;
+
+  opcion:string;
+
+
   constructor(
     public auth: AngularFireAuth,
     public router: Router
@@ -35,6 +39,19 @@ export class AccountService {
 
   ngOnInit(): void {
     
+  }
+
+  cambio(numero){
+    if(numero==1){
+      this.opcion='pasteles';
+    }
+    if(numero==2){
+      this.opcion='gelatinas';
+    }
+    if(numero==3){
+      this.opcion='galletas';
+    }
+    return this.opcion;
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import * as auth from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ declare var $: any;
 export class NavbarComponent implements OnInit {
 
   validarSpeak: GlobalService; 
+  
 
   constructor(
     public auth: AngularFireAuth,
@@ -30,5 +31,5 @@ export class NavbarComponent implements OnInit {
   habilitarSpeak(){
     this.global.band=!this.global.band; 
   }
-
+  
 }

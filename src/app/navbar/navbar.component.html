@@ -20,9 +20,10 @@
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item">Pasteles.</a>
-                                        <a class="dropdown-item">Gelatinas.</a>
-                                        <a class="dropdown-item">Galletas.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambio(1)">Pasteles.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambio(2)">Gelatinas.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambio(3)">Galletas.</a>
+                                    
                                     </div>
                                 </li>
 
