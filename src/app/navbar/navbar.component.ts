@@ -15,7 +15,7 @@ declare var $: any;
 export class NavbarComponent implements OnInit {
 
   validarSpeak: GlobalService; 
-  carrito = []
+  carrito: any = []
 
   constructor(
     public auth: AngularFireAuth,
@@ -25,27 +25,60 @@ export class NavbarComponent implements OnInit {
     private firestoreService: FirestoreService
   ){
     this.validarSpeak=global;
-    
-    if(this.accountService.isAdminUser() != null) {
+  }
+
+  ngOnInit(): void {
+  }
+
+  addProductCant(i: number) {
+    if(this.carrito[i].data.existencia > this.carrito[i].cantidad) {
+      this.carrito[i].cantidad++
+    }
+  }
+
+  restProductCant(i: number) {
+    if(this.carrito[i].cantidad > 1)
+      this.carrito[i].cantidad--
+    else {
+      this.dropFromCart(i)
+    }
+  }
+
+  dropFromCart(i: number) {
+    this.firestoreService.dropCart(this.carrito[i].idCarrito)
+    this.carrito.splice(i, 1)
+    this.getUserCart()
+  }
+
+  habilitarSpeak(){
+    this.global.band=!this.global.band; 
+  }
+  
+  getUserCart() {
+    console.log("carrito")
+    this.carrito = []
+    if(this.accountService.uid != null) {
       this.firestoreService.getCart(this.accountService.uid).subscribe(cartSnapshot => {
 
         if(cartSnapshot.length > 0) {
+          let i = 0
           cartSnapshot.forEach((cartData: any) => {
             let cartProduct = cartData.payload.doc
             //Obtener datos de productos en el carrito
               this.firestoreService.getProducto(cartProduct.data().idProducto).subscribe(producto => {
-                let datos = producto.payload
-                this.carrito.push({
-                  id: datos.id,
-                  data: datos.data()
-                })
-                //console.log(this.carrito)
+                if(i < cartSnapshot.length) {
+                  let datos = producto.payload
+                  i=i+1
+                  this.carrito.push({
+                    id: datos.id,
+                    data: datos.data(),
+                    cantidad: cartProduct.data().cantidad,
+                    idCarrito: cartProduct.id
+                  })
+                }
               })
-              /*this.carrito.push({
-                id: user.id,
-                data: user.data()
-              })*/
-            })
+            }
+          )
         }
 
       })
@@ -54,12 +87,4 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    
-  }
-  
-  habilitarSpeak(){
-    this.global.band=!this.global.band; 
-  }
-  
 }

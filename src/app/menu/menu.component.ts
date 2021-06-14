@@ -16,7 +16,6 @@ export class MenuComponent implements OnInit {
     private firestoreService: FirestoreService,
     private router: Router
     ) {
-      alert("xd")
   }
 
   productos = []
@@ -41,15 +40,15 @@ export class MenuComponent implements OnInit {
       this.router.navigate(['login'])
       return
     }
+    
     //Con sesión iniciada
     let data = {
-      uid:this.accountService.uid,
+      uid: this.accountService.uid,
       idProducto: documentId,
       cantidad: 1
     }
 
     this.firestoreService.addToCart(data)
-    alert("uid: " + this.accountService.uid + ", idProducto: " + documentId)
   }
 
 }

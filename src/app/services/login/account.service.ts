@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { OnInit, AfterViewInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import * as auth from 'firebase/app'
-import { isError } from 'util';
+import * as auth from 'firebase/app';
+declare var $: any;
 
 @Injectable({
   providedIn: 'root'
@@ -30,20 +30,20 @@ export class AccountService {
 
   categoria: string;
   idCategoria: number;
-  uid: string
 
+  uid: string;
 
   constructor(
     public auth: AngularFireAuth,
     public router: Router
   ) {
     this.isAdminUser()
+    alert("const")
     this.idCategoria = 1
     this.categoria = 'pasteles'
   }
 
   ngOnInit(): void {
-    
   }
 
   cambioCategoria(cat){
@@ -64,11 +64,13 @@ export class AccountService {
     this.router.navigate(['home'])
   }
 
-  isAdminUser(){
-    
+  isAdminUser() {
     this.auth.user.subscribe((user)=>{
-      this.uid = user.uid
-      this.isAdmin = user!=null && user.email == "admin@kndyfood.com"
+      if(user) {
+        this.uid = user.uid
+        this.isAdmin = user!=null && user.email == "admin@kndyfood.com"
+        $('#eventBtn').click()
+      }
     })
   }
 
@@ -78,6 +80,7 @@ export class AccountService {
       console.log(res)
       this.cleanForms()
       this.isAdminUser()
+      alert("custom login")
       this.router.navigate(['home'])
     })
     .catch( err => {
@@ -91,6 +94,7 @@ export class AccountService {
     this.router.navigate(['home'])
     this.isAdmin = false
     this.uid = null
+    $('#eventBtn').click()
   }
 
   register() {
@@ -108,6 +112,7 @@ export class AccountService {
         })
         console.log(user)
         this.isAdminUser()
+        alert("register")
         this.router.navigate(['home'])
       })
       .catch(err => {

@@ -48,8 +48,7 @@ export class FirestoreService {
   //CARRITO
 
   //Obtener carrito
-  public getCart(uid: string) {
-    alert(uid)
+  public getCart(uid: any) {
     return this.firestore.collection('carrito', data => {
       return data.where('uid', '==', uid)
     }).snapshotChanges()
@@ -61,7 +60,12 @@ export class FirestoreService {
     uid: string,
     cantidad: number
   }) {
-    this.firestore.collection('carrito').add(data)
+    return this.firestore.collection('carrito').add(data)
+  }
+
+  //Eliminar del carrito
+  dropCart(documentId) {
+    return this.firestore.collection('carrito').doc(documentId).delete()
   }
 
 }
