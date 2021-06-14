@@ -37,9 +37,10 @@ export class NavbarComponent implements OnInit {
   }
 
   restProductCant(i: number) {
-    if(this.carrito[i].data.cantidad > 1)
+    if(this.carrito[i].data.cantidad > 1) {
       this.carrito[i].data.cantidad--
-    else {
+      this.firestoreService.updateCartProduct(this.carrito[i].idCarrito, this.carrito[i].data)
+    } else {
       this.dropFromCart(i)
     }
   }
@@ -67,8 +68,6 @@ export class NavbarComponent implements OnInit {
         
 
       })
-    } else {
-      console.log("no user found")
     }
   }
 

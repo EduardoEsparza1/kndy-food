@@ -68,4 +68,9 @@ export class FirestoreService {
     return this.firestore.collection('carrito').doc(documentId).delete()
   }
 
+  //Actualizar producto del carrito
+  public updateCartProduct(documentId: string, data: any) {
+    return this.firestore.collection('carrito').doc(documentId).set(data);
+  }
+
 }
