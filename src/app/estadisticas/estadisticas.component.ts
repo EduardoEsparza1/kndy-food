@@ -9,9 +9,9 @@ export class EstadisticasComponent{
 
   //datos de las lineas
   public lineChartData:Array<any>=[
-    {data: [65, 59, 80, 81, 56, 55, 40],label: 'Domicilio' },
-    {data: [28,48, 40, 19, 86, 27, 90],label: 'Local' },
-    {data: [18, 48, 77, 9, 100, 27, 40],label: 'Recoger' }
+    {data: [65, 59, 80, 81, 56, 55, 40],label: 'Pasteles' },
+    {data: [28,48, 40, 19, 86, 27, 90],label: 'Gelatinas' },
+    {data: [18, 48, 77, 9, 100, 27, 40],label: 'Galletas' }
   ];
 //nombres del eje x
   public lineChartLabels:Array<any> = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'];
@@ -60,15 +60,18 @@ export class EstadisticasComponent{
   //para generar un random
   //creando en el arreglo objetos aleatorios
 
-  public randomize():void{
+  public generate():void{
     let _lineChartData:Array<any> = new Array(this.lineChartData.length);
     for(let i=0; i<this.lineChartData.length;i++){
-      _lineChartData[i]={data:new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-      for(let j=0;j<this.lineChartData[i].data.length;j++){
-        _lineChartData[i].data[j] = Math.floor((Math.random()*100)+1);
-      }
+      _lineChartData[i]={data:new Array(this.lineChartData[i].data.length), 
+      label: this.lineChartData[i].label};
     }
-    this.lineChartData = _lineChartData;
+    for(let j=0;j<7;j++){
+      _lineChartData[0].data[j] = 10; //los numeros marcan los datos que se van a extraer de 
+      _lineChartData[1].data[j] = 14; //la base de datos
+      _lineChartData[2].data[j] = 35;
+    }
+   this.lineChartData = _lineChartData;
     this.bandera=false;
   }
 //events

@@ -20,7 +20,7 @@
                 <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
             </tr>
         </table>-->
-        <button *ngIf="this.bandera==true"  class="btn btn-primary btn-block"  (click)="randomize()">Ver Gráfica</button>
-        <button *ngIf="this.bandera==false" class="btn btn-primary btn-block" (click)="randomize()">Click para Actualizar</button>
+        <button *ngIf="this.bandera==true"  class="btn btn-primary btn-block"  (click)="generate()">Ver Gráfica</button>
+        <button *ngIf="this.bandera==false" class="btn btn-primary btn-block" (click)="generate()">Click para Actualizar</button>
     </div>
 </div>
