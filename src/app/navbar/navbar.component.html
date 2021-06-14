@@ -54,6 +54,9 @@
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" *ngIf="accountService.isAdmin">
                                     <a class="nav-link" [routerLink]="['adminview']">Editar</a>
                                 </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" *ngIf="accountService.isAdmin">
+                                    <a class="nav-link" [routerLink]="['estadisticas']">Estadisticas</a>
+                                </li>
 
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active"
                                     *ngIf="auth.user | async as user; else showLogin" id="logout">

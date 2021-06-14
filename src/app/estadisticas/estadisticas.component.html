@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-6">
+        <div style="display: block;">
+            <!--Canvas para poder generar graficos, ancho y alto se definen de forma estatica-->
+            <!--Enlaces a todo lo que pusimos en el ts-->
+            <canvas *ngIf="this.bandera==false" baseChart width="400" height="400" [datasets]="lineChartData"
+                [labels]="lineChartLabels" [options]="lineChartOption" [colors]="lineChartColors"
+                [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+
+        </div>
+    </div>
+    <div class="col-md-6" style="margin-bottom: 10px;">
+        <!--Puse la tabla aqui para que se vea como se cambian los datos, pero realmente no tiene funcion importante-->
+        <!--<table class="table table-responsive table-condensed">
+            <tr>
+                <th *ngFor="let label of lineChartLabels">{{label}}</th>
+            </tr>
+            <tr *ngFor="let d of lineChartData">
+                <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+            </tr>
+        </table>-->
+        <button *ngIf="this.bandera==true"  class="btn btn-primary btn-block"  (click)="randomize()">Ver Gráfica</button>
+        <button *ngIf="this.bandera==false" class="btn btn-primary btn-block" (click)="randomize()">Click para Actualizar</button>
+    </div>
+</div>
