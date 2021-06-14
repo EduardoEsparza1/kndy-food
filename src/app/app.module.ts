@@ -20,6 +20,9 @@ import { AdminviewComponent } from './adminview/adminview.component';
 import { WindowService } from './services/window/window.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+
+import { ChartsModule } from 'ng2-charts'; //para la grafica
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { MenuComponent } from './menu/menu.component';
     ContactComponent,
     AboutComponent,
     AdminviewComponent,
-    MenuComponent
+    MenuComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule,
     AngularFireAuthGuardModule,
     AngularFireStorageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [WindowService],
   bootstrap: [AppComponent]
