@@ -56,8 +56,8 @@ export class FirestoreService {
 
   //Añadir elemento
   addToCart(data: {
-    idProducto: string,
     uid: string,
+    producto: object,
     cantidad: number
   }) {
     return this.firestore.collection('carrito').add(data)

@@ -38,7 +38,6 @@ export class AccountService {
     public router: Router
   ) {
     this.isAdminUser()
-    alert("const")
     this.idCategoria = 1
     this.categoria = 'pasteles'
   }

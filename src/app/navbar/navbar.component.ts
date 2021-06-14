@@ -31,14 +31,14 @@ export class NavbarComponent implements OnInit {
   }
 
   addProductCant(i: number) {
-    if(this.carrito[i].data.existencia > this.carrito[i].cantidad) {
-      this.carrito[i].cantidad++
+    if(this.carrito[i].data.producto.data.existencia > this.carrito[i].data.cantidad) {
+      this.carrito[i].data.cantidad++
     }
   }
 
   restProductCant(i: number) {
-    if(this.carrito[i].cantidad > 1)
-      this.carrito[i].cantidad--
+    if(this.carrito[i].data.cantidad > 1)
+      this.carrito[i].data.cantidad--
     else {
       this.dropFromCart(i)
     }
@@ -46,8 +46,6 @@ export class NavbarComponent implements OnInit {
 
   dropFromCart(i: number) {
     this.firestoreService.dropCart(this.carrito[i].idCarrito)
-    this.carrito.splice(i, 1)
-    this.getUserCart()
   }
 
   habilitarSpeak(){
@@ -55,31 +53,18 @@ export class NavbarComponent implements OnInit {
   }
   
   getUserCart() {
-    console.log("carrito")
-    this.carrito = []
     if(this.accountService.uid != null) {
       this.firestoreService.getCart(this.accountService.uid).subscribe(cartSnapshot => {
-
-        if(cartSnapshot.length > 0) {
-          let i = 0
+        this.carrito = []
           cartSnapshot.forEach((cartData: any) => {
-            let cartProduct = cartData.payload.doc
-            //Obtener datos de productos en el carrito
-              this.firestoreService.getProducto(cartProduct.data().idProducto).subscribe(producto => {
-                if(i < cartSnapshot.length) {
-                  let datos = producto.payload
-                  i=i+1
-                  this.carrito.push({
-                    id: datos.id,
-                    data: datos.data(),
-                    cantidad: cartProduct.data().cantidad,
-                    idCarrito: cartProduct.id
-                  })
-                }
-              })
+            let data = {
+              idCarrito: cartData.payload.doc.id,
+              data: cartData.payload.doc.data()
+            }
+            this.carrito.push(data)
             }
           )
-        }
+        
 
       })
     } else {

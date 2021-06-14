@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit {
 
   }
   
-  addToCart(documentId) {
+  addToCartMenu(i: number) {
     if(this.accountService.uid == null) {//No ha iniciado sesión
       this.router.navigate(['login'])
       return
@@ -44,10 +44,10 @@ export class MenuComponent implements OnInit {
     //Con sesión iniciada
     let data = {
       uid: this.accountService.uid,
-      idProducto: documentId,
+      producto: this.productos[i],
       cantidad: 1
     }
-
+    console.log(data)
     this.firestoreService.addToCart(data)
   }
 
