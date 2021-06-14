@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
 
   validarSpeak: GlobalService; 
   carrito: any = []
+  total: 0
 
   constructor(
     public auth: AngularFireAuth,
@@ -33,6 +34,7 @@ export class NavbarComponent implements OnInit {
   addProductCant(i: number) {
     if(this.carrito[i].data.producto.data.existencia > this.carrito[i].data.cantidad) {
       this.carrito[i].data.cantidad++
+      this.total += this.carrito[i].data.producto.data.precio
     }
   }
 
@@ -40,6 +42,7 @@ export class NavbarComponent implements OnInit {
     if(this.carrito[i].data.cantidad > 1) {
       this.carrito[i].data.cantidad--
       this.firestoreService.updateCartProduct(this.carrito[i].idCarrito, this.carrito[i].data)
+      this.total -= this.carrito[i].data.producto.data.precio
     } else {
       this.dropFromCart(i)
     }
@@ -57,10 +60,13 @@ export class NavbarComponent implements OnInit {
     if(this.accountService.uid != null) {
       this.firestoreService.getCart(this.accountService.uid).subscribe(cartSnapshot => {
         this.carrito = []
+        this.total = 0
           cartSnapshot.forEach((cartData: any) => {
+            let product = cartData.payload.doc
+            this.total += product.data().cantidad*product.data().producto.data.precio
             let data = {
-              idCarrito: cartData.payload.doc.id,
-              data: cartData.payload.doc.data()
+              idCarrito: product.id,
+              data: product.data()
             }
             this.carrito.push(data)
             }

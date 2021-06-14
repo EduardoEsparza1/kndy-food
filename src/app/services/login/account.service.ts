@@ -33,6 +33,8 @@ export class AccountService {
 
   uid: string;
 
+  triedRegister: boolean
+
   constructor(
     public auth: AngularFireAuth,
     public router: Router
@@ -96,16 +98,12 @@ export class AccountService {
     $('#eventBtn').click()
   }
 
-  register() {
-
-    if(this.correo != undefined && this.password == this.password2 && this.password != undefined) {
-      alert("correcto")
-      this.auth.createUserWithEmailAndPassword(this.correo, this.password)
+  register(form) {
+      this.auth.createUserWithEmailAndPassword(form.correo, form.password)
       .then(user => {
         this.auth.currentUser.then(srs =>{
           srs.updateProfile({
-            displayName: this.nombre
-            
+            displayName: form.nombre
           })
           this.cleanForms()
         })
@@ -117,9 +115,6 @@ export class AccountService {
       .catch(err => {
         console.log("Error user: ", err)
       })
-    } else {
-      alert("mal")
-    }
 
   }
 

@@ -382,3 +382,7 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
+small {
+  color: rgb(248, 225, 225);
+}

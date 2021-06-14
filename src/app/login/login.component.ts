@@ -7,6 +7,7 @@ import firebase from 'firebase'
 import { environment } from 'src/environments/environment';
 import { AccountService } from '../services/login/account.service'
 import { WindowService } from '../services/window/window.service'
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
 declare var $: any;
 
@@ -24,14 +25,22 @@ export class LoginComponent implements OnInit {
   disableOTPSendBtn = true
   noSent: boolean
 
+  triedRegister: boolean
+
+  public newRegisterForm = new FormGroup({
+    nombre: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
+    password2: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
+    correo: new FormControl('', Validators.compose([Validators.required, Validators.email]))
+  });
+
   constructor(
     public afAuth: AngularFireAuth,
     public accountService: AccountService,
     public router: Router,
     private windowService: WindowService
   ) {
-    //firebase.initializeApp(environment.firebaseConfig)
-    //auth.default.initializeApp(environment.firebaseConfig)
+    
     this.noSent = true
   }
 
@@ -95,6 +104,15 @@ export class LoginComponent implements OnInit {
         this.accountService.method = 'correo'
         this.router.navigate(['home'])
       })
+  }
+
+  validateRegister(form) {
+    this.triedRegister = true
+    //After proccess
+    if(this.newRegisterForm.valid) {
+      this.accountService.register(form)
+      this.triedRegister = false
+    }
   }
 
 }

@@ -55,7 +55,7 @@ export class FirestoreService {
   }
 
   //Añadir elemento
-  addToCart(data: {
+  public addToCart(data: {
     uid: string,
     producto: object,
     cantidad: number
@@ -64,7 +64,7 @@ export class FirestoreService {
   }
 
   //Eliminar del carrito
-  dropCart(documentId) {
+  public dropCart(documentId: string) {
     return this.firestore.collection('carrito').doc(documentId).delete()
   }
 

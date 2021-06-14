@@ -60,7 +60,7 @@
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d2" role="button"
                                         aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
                                     <div class="dropdown-menu" id="d2">
-                                        <a class="dropdown-item">Perfil.</a>
+                                        <a class="dropdown-item">Mis Pedidos.</a>
                                         <a class="dropdown-item" (click)="accountService.logout()">Cerrar Sesión.</a>
                                     </div>
 
@@ -97,7 +97,7 @@
 <!-- Modal de Carrito -->
 
 <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="auth.user | async as user;">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" class="text-primary" id="exampleModalLabel">Carrito</h5>
@@ -113,17 +113,17 @@
                             <td>${{producto.data.producto.data.precio}}</td>
                             <td>
                                 <div class='input-group'>
-                                    <button class='minus-item input-group-addon btn btn-primary' (click)="restProductCant(i)">-</button>
+                                    <button class='minus-item input-group-addon btn btn-outline-primary' (click)="restProductCant(i)">-</button>
                                     <input type='number' class='item-count form-control' [value]="producto.data.cantidad" disabled>
-                                    <button class='plus-item btn btn-primary input-group-addon' (click)="addProductCant(i)">+</button>
+                                    <button class='plus-item btn btn-outline-primary input-group-addon' (click)="addProductCant(i)">+</button>
                                 </div>
                             </td>
-                            <td><button class='delete-item btn btn-danger' (click)="dropFromCart(i)">X</button>
+                            <td><button class='delete-item btn btn-outline-danger' (click)="dropFromCart(i)">X</button>
                             </td>
                             <td>${{producto.data.cantidad*producto.data.producto.data.precio}}</td>
                         </tr>
                     </table>
-                    <div>Total price: $<span class="total-cart"></span></div>
+                    <div>Costo total: ${{total}}<span class="total-cart"></span></div>
                 </div>
                 <ng-template #emptyCart>
                     <h2 class="text-primary">CARRITO VACÍO</h2>
@@ -131,7 +131,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Apartar</button>
+                <button type="button" class="btn btn-primary" *ngIf="carrito.length > 0">Apartar</button>
             </div>
         </div>
     </div>
