@@ -7,7 +7,7 @@ import firebase from 'firebase'
 import { environment } from 'src/environments/environment';
 import { AccountService } from '../services/login/account.service'
 import { WindowService } from '../services/window/window.service'
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 declare var $: any;
 
