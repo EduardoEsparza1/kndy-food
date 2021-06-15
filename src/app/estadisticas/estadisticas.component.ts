@@ -1,4 +1,5 @@
-import { ANALYZE_FOR_ENTRY_COMPONENTS, Component} from '@angular/core';
+import { Component} from '@angular/core';
+import { createStorageRef } from '@angular/fire/storage';
 import { FirestoreService } from '../services/firestore/firestore.service'
 import { AccountService } from '../services/login/account.service'
 
@@ -8,9 +9,6 @@ import { AccountService } from '../services/login/account.service'
   styleUrls: ['./estadisticas.component.css']
 })
 export class EstadisticasComponent{
-
-  cant = [0, 0, 0]
-  _lineChartData: any
 
   //datos de las lineas
   public lineChartData:Array<any>=[
@@ -85,10 +83,10 @@ constructor(
 
     for(let j=0;j<7;j++){
 
-      _lineChartData[0].data[j] = 0; //los numeros marcan los datos que se van a extraer de 
-      _lineChartData[1].data[j] = 0; //la base de datos
-      _lineChartData[2].data[j] = 0;
       this.firestoreService.getPedidoByDate(this.lineChartLabels[j]).get().forEach(pedido => {
+        _lineChartData[0].data[j] = 0; //los numeros marcan los datos que se van a extraer de 
+        _lineChartData[1].data[j] = 0; //la base de datos
+        _lineChartData[2].data[j] = 0;
           pedido.docs.forEach(doc => {
             doc.data()['data'].forEach(element => {
               _lineChartData[element['data'].producto.data.categoria-1].data[j] += element['data'].cantidad
@@ -96,15 +94,15 @@ constructor(
             });
           })
 
+      }).then(() => {
+        this.lineChartData = _lineChartData;
+        setTimeout(() => {
+          this.bandera=false;
+        }, 0); 
       })
 
     }
 
-   this.lineChartData = _lineChartData;
-
-   console.log("finished")
-   resizeBy(100, 100)
-    this.bandera=false;
   }
 
 
