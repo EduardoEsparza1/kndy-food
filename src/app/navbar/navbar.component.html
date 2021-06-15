@@ -133,8 +133,8 @@
                 </ng-template>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" *ngIf="carrito.length > 0">Apartar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeCartModal">Cerrar</button>
+                <button type="button" class="btn btn-primary" *ngIf="carrito.length > 0" (click)="newPedido()">Apartar</button>
             </div>
         </div>
     </div>
