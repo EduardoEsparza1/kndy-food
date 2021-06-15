@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit {
   addProductCant(i: number) {
     if(this.carrito[i].data.producto.data.existencia > this.carrito[i].data.cantidad) {
       this.carrito[i].data.cantidad++
+      this.firestoreService.updateCartProduct(this.carrito[i].idCarrito, this.carrito[i].data)
       this.total += this.carrito[i].data.producto.data.precio
     }
   }
