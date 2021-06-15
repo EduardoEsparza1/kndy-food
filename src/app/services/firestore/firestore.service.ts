@@ -73,4 +73,26 @@ export class FirestoreService {
     return this.firestore.collection('carrito').doc(documentId).set(data);
   }
 
+  //Eliminar carrito
+  public deleteCart(documentId) {
+    return this.firestore.collection('carrito').doc(documentId).delete()
+  }
+
+  //PEDIDOS
+
+  //Nuevo pedido
+  public addPedido(data: {
+    data: object,
+    uid: string
+  }) {
+    return this.firestore.collection('pedidos').add(data)
+  }
+
+  //Obtener pedidos de usuario
+  public getPedidos(uid: string) {
+    return this.firestore.collection('pedidos', data => {
+      return data.where('uid', '==', uid)
+    }).snapshotChanges()
+  }
+
 }

@@ -7,6 +7,7 @@ import { GlobalService } from '../services/screenReader/global.service';
 import { FirestoreService } from '../services/firestore/firestore.service'
 
 declare var $: any;
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -76,6 +77,19 @@ export class NavbarComponent implements OnInit {
 
       })
     }
+  }
+
+  newPedido() {
+    let data = []
+    this.carrito.forEach(element => {
+      data.push(element)
+      this.firestoreService.deleteCart(element.idCarrito)
+    });
+    let values = {data: data, uid: this.accountService.uid}
+    this.firestoreService.addPedido(values).then(() => {
+      $('#closeCartModal').click()
+      alert("apartado exitoso")//Modificar
+    })
   }
 
 }
