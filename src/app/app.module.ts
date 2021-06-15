@@ -22,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
-import { ChartsModule } from 'ng2-charts'; //para la grafica
+import { ChartsModule } from 'ng2-charts';
+import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafica
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ChartsModule } from 'ng2-charts'; //para la grafica
     AboutComponent,
     AdminviewComponent,
     MenuComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,

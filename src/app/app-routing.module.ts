@@ -8,7 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { AdminviewComponent } from './adminview/adminview.component';
 import { MenuComponent } from './menu/menu.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
-
+import { PedidosComponent} from './pedidos/pedidos.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'adminview', component: AdminviewComponent },
+  { path: 'pedidos', component: PedidosComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'estadisticas', component: EstadisticasComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
