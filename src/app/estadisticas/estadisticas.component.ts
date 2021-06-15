@@ -14,8 +14,15 @@ export class EstadisticasComponent{
     {data: [18, 48, 77, 9, 100, 27, 40],label: 'Galletas' }
   ];
 //nombres del eje x
-  public lineChartLabels:Array<any> = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'];
-
+f = new Date();
+public lineChartLabels = [] 
+  //public lineChartLabels:Array<any> = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'];
+constructor() {
+  for (let i = 0; i < 7; i++) {
+    this.lineChartLabels.push((this.f.getDate()-i) + "/" + (this.f.getMonth() +1) + '/'+this.f.getFullYear()) 
+  }
+  this.lineChartLabels.reverse()
+}
 
 //opciones de como quiero la grafica
   public lineChartOption:any={
