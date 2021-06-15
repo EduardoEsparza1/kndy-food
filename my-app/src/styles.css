@@ -20,6 +20,16 @@ body {
     /* background-position: center; */
 }
 
+.gelatina {
+    background-image: url(assets/gelatina199.jpg);
+}
+
 .color-black {
     color: black;
+}
+
+.caja {
+    width: 200px;
+    height: 250px;
+    background-image: url(assets/gelatina199.jpg);
 }
