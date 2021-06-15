@@ -81,11 +81,18 @@ export class NavbarComponent implements OnInit {
 
   newPedido() {
     let data = []
+    let f = new Date()
+    let fecha = f.getDate() + '/' + (f.getMonth() + 1) + '/' + f.getFullYear()
+
     this.carrito.forEach(element => {
+      let producto = element.data.producto
+      console.log(producto)
+      producto.data.existencia -= element.data.cantidad
+      this.firestoreService.updateProducto(producto.id, producto.data)
       data.push(element)
       this.firestoreService.deleteCart(element.idCarrito)
     });
-    let values = {data: data, uid: this.accountService.uid}
+    let values = {data: data, uid: this.accountService.uid, fecha: fecha}
     this.firestoreService.addPedido(values).then(() => {
       $('#closeCartModal').click()
       alert("apartado exitoso")//Modificar

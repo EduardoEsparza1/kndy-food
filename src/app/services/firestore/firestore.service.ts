@@ -83,7 +83,8 @@ export class FirestoreService {
   //Nuevo pedido
   public addPedido(data: {
     data: object,
-    uid: string
+    uid: string,
+    fecha: string
   }) {
     return this.firestore.collection('pedidos').add(data)
   }
