@@ -126,16 +126,6 @@ export class AccountService {
     this.method = "correo"
   }
 
-  contacto() {
-
-    if(this.nombreContact != undefined && this.correoContact != undefined ) {
-      alert("correcto")
-    } else {
-      alert("Completa todos los campos")
-    }
-
-  }
-
   cleanForms() {
     //Registro
     this.correo = ""

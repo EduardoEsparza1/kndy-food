@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccountService } from '../services/login/account.service'
 
 
 @Component({
@@ -12,7 +11,6 @@ export class ContactComponent implements OnInit {
   @Input() action: string;
 
   constructor(
-    public accountService: AccountService,
     public router: Router
   ) { }
 
