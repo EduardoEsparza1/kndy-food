@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { WindowService } from './services/window/window.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { MessageService } from './services/message/message.service';
 
 import { ChartsModule } from 'ng2-charts';
 import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafica
@@ -48,9 +50,10 @@ import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafic
     AngularFireAuthGuardModule,
     AngularFireStorageModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    HttpClientModule
   ],
-  providers: [WindowService],
+  providers: [WindowService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

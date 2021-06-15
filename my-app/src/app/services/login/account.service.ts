@@ -20,11 +20,6 @@ export class AccountService {
   password2: string
   correo: string
 
-  //Contacto
-  nombreContact: string
-  correoContact: string
-  mensaje:string
-
   method = "correo"
   isAdmin: boolean;
 
@@ -125,6 +120,7 @@ export class AccountService {
   showCorreo() {
     this.method = "correo"
   }
+
 
   cleanForms() {
     //Registro
