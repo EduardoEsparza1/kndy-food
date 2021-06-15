@@ -1,4 +1,6 @@
-import { Component} from '@angular/core';
+import { ANALYZE_FOR_ENTRY_COMPONENTS, Component} from '@angular/core';
+import { FirestoreService } from '../services/firestore/firestore.service'
+import { AccountService } from '../services/login/account.service'
 
 @Component({
   selector: 'app-estadisticas',
@@ -6,6 +8,9 @@ import { Component} from '@angular/core';
   styleUrls: ['./estadisticas.component.css']
 })
 export class EstadisticasComponent{
+
+  cant = [0, 0, 0]
+  _lineChartData: any
 
   //datos de las lineas
   public lineChartData:Array<any>=[
@@ -15,13 +20,17 @@ export class EstadisticasComponent{
   ];
 //nombres del eje x
 f = new Date();
-public lineChartLabels = [] 
+public lineChartLabels: Array<any> = []
   //public lineChartLabels:Array<any> = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'];
-constructor() {
+constructor(
+  private accountServicew: AccountService,
+  private firestoreService: FirestoreService
+) {
   for (let i = 0; i < 7; i++) {
     this.lineChartLabels.push((this.f.getDate()-i) + "/" + (this.f.getMonth() +1) + '/'+this.f.getFullYear()) 
   }
   this.lineChartLabels.reverse()
+  this.generate()
 }
 
 //opciones de como quiero la grafica
@@ -73,14 +82,32 @@ constructor() {
       _lineChartData[i]={data:new Array(this.lineChartData[i].data.length), 
       label: this.lineChartData[i].label};
     }
+
     for(let j=0;j<7;j++){
-      _lineChartData[0].data[j] = 10; //los numeros marcan los datos que se van a extraer de 
-      _lineChartData[1].data[j] = 14; //la base de datos
-      _lineChartData[2].data[j] = 35;
+
+      _lineChartData[0].data[j] = 0; //los numeros marcan los datos que se van a extraer de 
+      _lineChartData[1].data[j] = 0; //la base de datos
+      _lineChartData[2].data[j] = 0;
+      this.firestoreService.getPedidoByDate(this.lineChartLabels[j]).get().forEach(pedido => {
+          pedido.docs.forEach(doc => {
+            doc.data()['data'].forEach(element => {
+              _lineChartData[element['data'].producto.data.categoria-1].data[j] += element['data'].cantidad
+              //console.log(_lineChartData)
+            });
+          })
+
+      })
+
     }
+
    this.lineChartData = _lineChartData;
+
+   console.log("finished")
+   resizeBy(100, 100)
     this.bandera=false;
   }
+
+
 //events
 public chartClicked(e:any):void{
   console.log(e);

@@ -96,4 +96,10 @@ export class FirestoreService {
     }).snapshotChanges()
   }
 
+  public getPedidoByDate(fecha: string) {
+    return this.firestore.collection('pedidos', data => {
+      return data.where('fecha', '==', fecha)
+    })
+  }
+
 }
