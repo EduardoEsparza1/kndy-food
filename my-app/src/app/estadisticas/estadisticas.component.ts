@@ -9,6 +9,7 @@ import { AccountService } from '../services/login/account.service'
   styleUrls: ['./estadisticas.component.css']
 })
 export class EstadisticasComponent{
+  public load: Boolean = false;
 
   //datos de las lineas
   public lineChartData:Array<any>=[
@@ -96,7 +97,9 @@ constructor(
 
       }).then(() => {
         this.lineChartData = _lineChartData;
+        
         setTimeout(() => {
+          this.load = true
           this.bandera=false;
         }, 0); 
       })

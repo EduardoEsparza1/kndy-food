@@ -1,5 +1,4 @@
-import { variable } from '@angular/compiler/src/output/output_ast';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirestoreService } from '../services/firestore/firestore.service';
 import { AccountService } from '../services/login/account.service';
@@ -24,9 +23,9 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
 
     //para el spinner:
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.load = true;
-    }, 3000);
+    }, 3000);*/
 
 
 
@@ -40,6 +39,7 @@ export class MenuComponent implements OnInit {
         })
 
       })
+      this.load = true;
     })
 
   }
