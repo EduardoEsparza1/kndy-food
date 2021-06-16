@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from '../services/message/message.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-login',
   templateUrl: './contact.component.html',
@@ -17,7 +19,7 @@ export class ContactComponent implements OnInit {
 
   contactForm(form) {
     this._MessageService.sendMessage(form).subscribe(() => {
-    alert('Mensaje enviado correctamente');
+      Swal.fire('Mensaje enviado correctamente')
    });
   }
 
