@@ -43,6 +43,7 @@ app.get('/codigoqr', async (req, res) => {
         })
     }).catch(err => console.log("Hijoles, esta mal we xd"))
 })
+/*-----------*/
 
 /* Correo */
 app.post('/api/formulario', (req, res) => {
