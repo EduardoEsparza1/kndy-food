@@ -33,19 +33,23 @@
             </form>
             -->
             
-            <form (ngSubmit)="contactForm(datos.value)" [formGroup]="datos">
+            <form (ngSubmit)="contactForm(datosForm.value)" [formGroup]="datosForm">
                 <h5>Tu eres lo más importante y nos gustaría saber qué piensas.</h5><br>
                 <div class="form-group">
-                  <label for="nombre">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre" required="required" formControlName="nombre">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required="required" formControlName="nombre">
+                    <small *ngIf="datosForm.get('nombre').errors?.required && triedDatos" class="small-red">Ingrese su nombre</small>
                 </div>
                 <div class="form-group">
                     <label for="email">Correo</label>
                     <input type="email" class="form-control" id="email" name="email" required="required" formControlName="email">
+                    <small *ngIf="datosForm.get('email').errors?.required && triedDatos" class="small-red">Ingrese su correo electrónico</small>
+                    <small *ngIf="datosForm.get('email').errors?.email && triedDatos" class="small-red">Ingrese un correo electrónico válido</small>
                 </div>
                 <div class="form-group">
                   <label for="mensaje">Mensaje</label>
                   <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required="required" formControlName="mensaje"></textarea>
+                  <small *ngIf="datosForm.get('mensaje').errors?.required && triedDatos" class="small-red">Ingrese un mensaje</small>
                 </div>
 
                 <div class="form-group row">
