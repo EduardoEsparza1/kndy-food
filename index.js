@@ -3,11 +3,30 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 const configMensaje = require('./configMensaje');
 
+/*firebase*/
+const compression = require('compression')
+const path = require('path');
+/*-------*/
 
 const app = express(); //crear al servidor
 const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended:false}));
 app.use(bodyParser.json());
+app.use(cors());
+
+/*firebase*/
+require('dotenv').config()
+
+app.use(express.urlencoded())
+app.use(express.json())
+
+app.set('views', path.join(__dirname, 'static', 'views'))
+app.set('view engine', 'ejs')
+app.use(compression())
+app.use('/public', express.static(path.join(__dirname, 'static', 'public')))
+
+var admin = require("firebase-admin");
+var serviceAccount = require("./serviceAccountKey.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -27,6 +46,7 @@ app.get('/api/codigoqr', async (req, res) => {
 })
 /*-----------*/
 
+/* Correo */
 app.post('/api/formulario', (req, res) => {
     configMensaje(req.body);
     res.status(200).send();
