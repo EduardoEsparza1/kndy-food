@@ -36,6 +36,12 @@ export class ContactComponent implements OnInit {
       this._MessageService.sendMessage(datosForm).subscribe(() => {
         Swal.fire('Mensaje enviado correctamente')
       });
+
+      this.datosForm.setValue({
+        nombre: '',
+        email: '',
+        mensaje: '',
+      })
       
       this.triedDatos = false
     }
