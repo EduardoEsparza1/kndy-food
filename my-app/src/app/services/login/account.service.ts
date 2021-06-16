@@ -3,8 +3,7 @@ import { OnInit, AfterViewInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/app';
-
-import Swal from 'sweetalert2';
+import Swal  from 'sweetalert2'
 declare var $: any;
 
 @Injectable({

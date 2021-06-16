@@ -9,7 +9,23 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended:false}));
 app.use(bodyParser.json());
 
-app.use(cors());
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://kndy-food-8c7ba-default-rtdb.firebaseio.com",
+});
+
+let db = admin.firestore();
+
+app.get('/api/codigoqr', async (req, res) => {
+    let b = db.collection('pedidos')
+    await b.get().then(res => {
+        
+        res.docs.forEach(doc => {
+            console.log(doc.data())
+        })
+    }).catch(err => console.log("Hijoles, esta mal we xd"))
+})
+/*-----------*/
 
 app.post('/api/formulario', (req, res) => {
     configMensaje(req.body);
