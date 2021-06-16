@@ -9,8 +9,7 @@
         <strong class="d-inline-block mb-2 text-primary">Pedido {{i+1}} - {{pedido.fecha}}</strong>
         <ng-container *ngFor="let datos of pedido.data; let j = index">
           <h5 class="mb-0">{{datos.data.producto.data.nombre}}</h5>
-          <p class="card-text mb-auto">{{datos.data.cantidad}} X ${{datos.data.producto.data.precio}} |
-            ${{datos.data.cantidad*datos.data.producto.data.precio}}</p>
+          <p class="card-text mb-auto">{{datos.data.cantidad}} X ${{datos.data.producto.data.precio}} | ${{datos.data.cantidad*datos.data.producto.data.precio}}</p>
         </ng-container>
         <!-- <p class="text-primary">Total: {{}}</p> -->
         <!--Aquí hay que mandar a gelatinas-->

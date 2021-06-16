@@ -54,8 +54,7 @@ import { CodigoqrService } from './services/codigoQR/codigoqr.service'
     AngularFireStorageModule,
     ReactiveFormsModule,
     ChartsModule,
-    HttpClientModule,
-    QrCodeModule
+    HttpClientModule
   ],
   providers: [WindowService, MessageService, CodigoqrService],
   bootstrap: [AppComponent]
