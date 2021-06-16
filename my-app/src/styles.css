@@ -53,3 +53,7 @@ body {
 .alto {
     height: 265px;
 }
+
+.padd {
+    padding-left: 10px;
+}
