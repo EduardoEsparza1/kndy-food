@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { __awaiter } from 'tslib';
 import { FirestoreService } from '../services/firestore/firestore.service';
 import { AccountService } from '../services/login/account.service';
+import { CodigoqrService } from '../services/codigoQR/codigoqr.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -12,10 +13,13 @@ import { AccountService } from '../services/login/account.service';
 export class PedidosComponent implements OnInit {
 
   pedidos: any
+  datospedidos: any
+
 
   constructor(
     private firestoreService: FirestoreService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private codigoqr: CodigoqrService
     ) { }
 
   ngOnInit(): void {
