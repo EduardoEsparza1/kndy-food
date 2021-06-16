@@ -73,26 +73,33 @@ export class AccountService {
   }
 
   customLogin(form) {
-    let band = true
     this.auth.signInWithEmailAndPassword(form.email, form.pass)
     .then( res => {
-      console.log(res)
+      //console.log(res)
       this.cleanForms()
       this.isAdminUser()
-      Swal.fire('Custom Login')
+      //Swal.fire('Custom Login')
       this.router.navigate(['home'])
       
     })
-    .catch( err => {
-<<<<<<< Updated upstream
-      console.log("Error cl: ", err)
-      Swal.fire('Error')
-=======
-      console.log(err)
-      band = false
-    }).finally(()=> {
-      return band
->>>>>>> Stashed changes
+    .catch( e => {
+      let error = e.code
+      let text = 'Algo salió mal, intente de nuevo'
+      if(error == 'auth/user-not-found')
+        text = 'El usuario no existe'
+      else if(error == 'auth/wrong-password')
+        text = 'La contraseña es incorrecta'
+      
+      setTimeout(() => {
+        Swal.fire({
+          icon: 'error',
+          text: text,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }, 1); 
+      return
+      
     })
   }
 
@@ -115,7 +122,7 @@ export class AccountService {
         })
         console.log(user)
         this.isAdminUser()
-        Swal.fire('Register')
+        //Swal.fire('Register')
         this.router.navigate(['home'])
       })
       .catch(err => {
