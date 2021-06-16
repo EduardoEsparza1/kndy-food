@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AccountService } from '../services/login/account.service';
 import { GlobalService } from '../services/screenReader/global.service';
 import { FirestoreService } from '../services/firestore/firestore.service'
+import Swal from 'sweetalert2';
 
 declare var $: any;
 
@@ -15,7 +16,7 @@ declare var $: any;
 })
 export class NavbarComponent implements OnInit {
 
-  validarSpeak: GlobalService; 
+  validarSpeak: GlobalService;
   carrito: any = []
   total: 0
 
@@ -25,25 +26,30 @@ export class NavbarComponent implements OnInit {
     public router: Router,
     private global: GlobalService,
     private firestoreService: FirestoreService
-  ){
-    this.validarSpeak=global;
+  ) {
+    this.validarSpeak = global;
   }
 
   ngOnInit(): void {
   }
 
   addProductCant(i: number) {
-    if(this.carrito[i].data.producto.data.existencia > this.carrito[i].data.cantidad) {
+    if (this.carrito[i].data.producto.data.existencia > this.carrito[i].data.cantidad) {
       this.carrito[i].data.cantidad++
       this.firestoreService.updateCartProduct(this.carrito[i].idCarrito, this.carrito[i].data)
       this.total += this.carrito[i].data.producto.data.precio
-    }else{
-      alert("No hay mas");
+    } else {
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Alto...',
+        text: 'Lo sentimos, no hay más productos!',
+      })
     }
   }
 
   restProductCant(i: number) {
-    if(this.carrito[i].data.cantidad > 1) {
+    if (this.carrito[i].data.cantidad > 1) {
       this.carrito[i].data.cantidad--
       this.firestoreService.updateCartProduct(this.carrito[i].idCarrito, this.carrito[i].data)
       this.total -= this.carrito[i].data.producto.data.precio
@@ -56,26 +62,26 @@ export class NavbarComponent implements OnInit {
     this.firestoreService.dropCart(this.carrito[i].idCarrito)
   }
 
-  habilitarSpeak(){
-    this.global.band=!this.global.band; 
+  habilitarSpeak() {
+    this.global.band = !this.global.band;
   }
-  
+
   getUserCart() {
-    if(this.accountService.uid != null) {
+    if (this.accountService.uid != null) {
       this.firestoreService.getCart(this.accountService.uid).subscribe(cartSnapshot => {
         this.carrito = []
         this.total = 0
-          cartSnapshot.forEach((cartData: any) => {
-            let product = cartData.payload.doc
-            this.total += product.data().cantidad*product.data().producto.data.precio
-            let data = {
-              idCarrito: product.id,
-              data: product.data()
-            }
-            this.carrito.push(data)
-            }
-          )
-        
+        cartSnapshot.forEach((cartData: any) => {
+          let product = cartData.payload.doc
+          this.total += product.data().cantidad * product.data().producto.data.precio
+          let data = {
+            idCarrito: product.id,
+            data: product.data()
+          }
+          this.carrito.push(data)
+        }
+        )
+
 
       })
     }
@@ -94,10 +100,15 @@ export class NavbarComponent implements OnInit {
       data.push(element)
       this.firestoreService.deleteCart(element.idCarrito)
     });
-    let values = {data: data, uid: this.accountService.uid, fecha: fecha}
+    let values = { data: data, uid: this.accountService.uid, fecha: fecha }
     this.firestoreService.addPedido(values).then(() => {
       $('#closeCartModal').click()
-      alert("apartado exitoso")//Modificar
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Súpeeeer...',
+        text: 'Tu pedido ha sido apartado, puedes verlo en "Mis Pedidos"!',
+      })
     })
   }
 
