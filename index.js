@@ -27,6 +27,7 @@ app.use('/public', express.static(path.join(__dirname, 'static', 'public')))
 
 var admin = require("firebase-admin");
 var serviceAccount = require("./serviceAccountKey.json");
+const { json } = require("express");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -35,14 +36,19 @@ admin.initializeApp({
 
 let db = admin.firestore();
 
-app.get('/api/codigoqr', async (req, res) => {
+app.get('/api/codigoqr/:uid', async (req, res) => {
     let b = db.collection('pedidos')
-    await b.get().then(res => {
-        
-        res.docs.forEach(doc => {
-            console.log(doc.data())
+    let userPedidos = await b.where('uid', '==', req.params.uid)
+    let array = await userPedidos.get()
+    if(array) {
+        let pedidos = []
+        array.forEach(doc => {
+            pedidos.push(doc.data())
         })
-    }).catch(err => console.log("Hijoles, esta mal we xd"))
+        console.log('correcto')
+        res.status(200).send(pedidos);
+    }
+    else console.log("Hijoles, esta mal we xd")
 })
 /*-----------*/
 

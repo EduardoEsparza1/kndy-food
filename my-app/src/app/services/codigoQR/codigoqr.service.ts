@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { AccountService } from '../login/account.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +10,17 @@ export class CodigoqrService {
 
   constructor(
     private http: HttpClient,
-    
+    private accountService: AccountService
   ) {}
 
   /*Me devuelve todos los pedidos*/
-  getDatosPedidos() {
+  /*getDatosPedidos() {
     return this.http.get(`${this.API_URI}/codigoqr`);
-  }
-
-  /*me devuelve un pedido en especifico*/
- /* getDatosPedido(uid: string) {
-    return this.http.get(`${this.API_URI}/codigoqr/${this.accountservice.uid}`);
   }*/
+
+  /*Me devuelve los pedidos de un usuario*/
+  getDatosPedidos() {
+    return this.http.get(`${this.API_URI}/codigoqr/${this.accountService.uid}`);
+  }
 
 }
