@@ -38,8 +38,9 @@ export class PedidosComponent implements OnInit {
 
     this.codigoqr.getDatosPedidos().subscribe(
       (res) => {
-        this.datospedidos = res
-        console.log(res)},
+        this.datospedidos = res;
+        console.log(res);
+      },
       (err) => console.log(err)
     );
   }

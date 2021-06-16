@@ -15,7 +15,7 @@ export class CodigoqrService {
     return this.http.get(`${this.API_URI}/codigoqr`)
   }
 
-  /*me devuelve uno pedido en especifico*/
+  /*me devuelve un pedido en especifico*/
   getDatosPedido(id: string){
     return this.http.get(`${this.API_URI}/codigoqr/${id}`)
   }

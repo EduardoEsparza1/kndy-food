@@ -42,7 +42,7 @@ import { CodigoqrService } from './services/codigoQR/codigoqr.service'
     AdminviewComponent,
     MenuComponent,
     EstadisticasComponent,
-    PedidosComponent
+    PedidosComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,8 @@ import { CodigoqrService } from './services/codigoQR/codigoqr.service'
     AngularFireStorageModule,
     ReactiveFormsModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    QrCodeModule
   ],
   providers: [WindowService, MessageService, CodigoqrService],
   bootstrap: [AppComponent]
