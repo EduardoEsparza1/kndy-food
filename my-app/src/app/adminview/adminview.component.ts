@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirestoreService } from '../services/firestore/firestore.service'
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-adminview',
   templateUrl: './adminview.component.html',
@@ -81,14 +83,14 @@ export class AdminviewComponent implements OnInit {
       if(this.accion == 0) {//Crear
 
         this.firestoreService.newProducto(data).then(() => {
-          alert("Creado exitosamente")
+          Swal.fire('Editado exitosamente')
           this.cancel()
         }, error => alert("error en la matrix (edicion)"))
 
       } else {//Editar
 
         this.firestoreService.updateProducto(documentId, data).then(() => {
-          alert("Editado exitosamente")
+          Swal.fire('Editado exitosamente')
         }, error => alert("error en la matrix (edicion)"))
 
       }
@@ -118,7 +120,7 @@ export class AdminviewComponent implements OnInit {
     let wantToDelete = confirm("Eliminar?")
     if(wantToDelete) {
       this.firestoreService.deleteProducto(this.documentId).then(() => {
-        alert("Producto Eliminado")
+        Swal.fire('Producto eliminado')
         this.cancel()
       })
     }

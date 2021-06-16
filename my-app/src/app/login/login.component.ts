@@ -9,6 +9,8 @@ import { AccountService } from '../services/login/account.service'
 import { WindowService } from '../services/window/window.service'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import Swal from 'sweetalert2';
+
 declare var $: any;
 
 @Component({
@@ -79,10 +81,10 @@ export class LoginComponent implements OnInit {
   }
 
   sendOTP() {
-    alert("por enviar")
+    Swal.fire('Por enviar')
     this.afAuth.signInWithPhoneNumber(this.phoneNumber, this.windowRef.recaptchaVerifier)
       .then( confirmationResult => {
-        alert("enviado")
+        Swal.fire('Enviado')
         this.windowRef.confirmationResult = confirmationResult
         this.noSent = false
       })
