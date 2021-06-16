@@ -3,6 +3,8 @@ import { OnInit, AfterViewInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/app';
+
+import Swal from 'sweetalert2';
 declare var $: any;
 
 @Injectable({
@@ -70,18 +72,27 @@ export class AccountService {
     })
   }
 
-  customLogin() {
-    this.auth.signInWithEmailAndPassword(this.email, this.pass)
+  customLogin(form) {
+    let band = true
+    this.auth.signInWithEmailAndPassword(form.email, form.pass)
     .then( res => {
       console.log(res)
       this.cleanForms()
       this.isAdminUser()
-      alert("custom login")
+      Swal.fire('Custom Login')
       this.router.navigate(['home'])
+      
     })
     .catch( err => {
+<<<<<<< Updated upstream
       console.log("Error cl: ", err)
-      alert("error")
+      Swal.fire('Error')
+=======
+      console.log(err)
+      band = false
+    }).finally(()=> {
+      return band
+>>>>>>> Stashed changes
     })
   }
 
@@ -104,7 +115,7 @@ export class AccountService {
         })
         console.log(user)
         this.isAdminUser()
-        alert("register")
+        Swal.fire('Register')
         this.router.navigate(['home'])
       })
       .catch(err => {

@@ -9,6 +9,8 @@ import { AccountService } from '../services/login/account.service'
 import { WindowService } from '../services/window/window.service'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import Swal from 'sweetalert2';
+
 declare var $: any;
 
 @Component({
@@ -26,12 +28,18 @@ export class LoginComponent implements OnInit {
   noSent: boolean
 
   triedRegister: boolean
+  triedCustomLogin: boolean
 
   public newRegisterForm = new FormGroup({
     nombre: new FormControl('', Validators.required),
     password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
     password2: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
     correo: new FormControl('', Validators.compose([Validators.required, Validators.email]))
+  });
+
+  public newCustomLoginForm = new FormGroup({
+    email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+    pass: new FormControl('', Validators.required)
   });
 
   constructor(
@@ -79,10 +87,10 @@ export class LoginComponent implements OnInit {
   }
 
   sendOTP() {
-    alert("por enviar")
+    Swal.fire('Por enviar')
     this.afAuth.signInWithPhoneNumber(this.phoneNumber, this.windowRef.recaptchaVerifier)
       .then( confirmationResult => {
-        alert("enviado")
+        Swal.fire('Enviado')
         this.windowRef.confirmationResult = confirmationResult
         this.noSent = false
       })
@@ -112,6 +120,14 @@ export class LoginComponent implements OnInit {
     if(this.newRegisterForm.valid) {
       this.accountService.register(form)
       this.triedRegister = false
+    }
+  }
+
+  customLogin(form) {
+    this.triedCustomLogin = true
+    if(this.newCustomLoginForm.valid) {
+      this.accountService.customLogin(form)
+        this.triedCustomLogin = false
     }
   }
 
