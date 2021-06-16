@@ -48,7 +48,7 @@ app.get('/api/codigoqr/:uid', async (req, res) => {
         console.log('correcto')
         res.status(200).send(pedidos);
     }
-    else console.log("Hijoles, esta mal we xd")
+    else console.log("Hijoles, esta mal xd")
 })
 /*-----------*/
 
