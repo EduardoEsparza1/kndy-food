@@ -1,13 +1,13 @@
 const express = require("express"); //importar express
 const bodyParser = require("body-parser");
 const cors = require('cors');
+const configMensaje = require('./configMensaje');
 
 /*firebase*/
 const compression = require('compression')
 const path = require('path');
 /*-------*/
 
-const configMensaje = require('./configMensaje');
 const app = express(); //crear al servidor
 const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended:false}));
