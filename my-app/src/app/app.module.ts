@@ -27,6 +27,9 @@ import { MessageService } from './services/message/message.service';
 import { ChartsModule } from 'ng2-charts';
 import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafica
 
+import { QrCodeModule } from 'ng-qrcode';
+import { CodigoqrService } from './services/codigoQR/codigoqr.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +56,7 @@ import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafic
     ChartsModule,
     HttpClientModule
   ],
-  providers: [WindowService, MessageService],
+  providers: [WindowService, MessageService, CodigoqrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
