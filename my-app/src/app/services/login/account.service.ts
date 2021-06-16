@@ -72,18 +72,27 @@ export class AccountService {
     })
   }
 
-  customLogin() {
-    this.auth.signInWithEmailAndPassword(this.email, this.pass)
+  customLogin(form) {
+    let band = true
+    this.auth.signInWithEmailAndPassword(form.email, form.pass)
     .then( res => {
       console.log(res)
       this.cleanForms()
       this.isAdminUser()
       Swal.fire('Custom Login')
       this.router.navigate(['home'])
+      
     })
     .catch( err => {
+<<<<<<< Updated upstream
       console.log("Error cl: ", err)
       Swal.fire('Error')
+=======
+      console.log(err)
+      band = false
+    }).finally(()=> {
+      return band
+>>>>>>> Stashed changes
     })
   }
 

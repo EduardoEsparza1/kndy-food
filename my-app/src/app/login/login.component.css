@@ -386,3 +386,7 @@ body {
 small {
   color: rgb(248, 225, 225);
 }
+
+.small-red {
+  color: red;
+}

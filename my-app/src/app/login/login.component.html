@@ -12,30 +12,43 @@
 
         <!-- Correo -->
         <ng-container *ngIf="accountService.method=='correo'; else sms">
-          <div class="form-group"><label for="email">Correo</label><input type="text" id="email" name="email"
-              [(ngModel)]='accountService.email' required="required" autocomplete="true" /></div>
-          <div class="form-group"><label for="pass">Contraseña</label><input type="password" id="pass" name="pass"
-              [(ngModel)]="accountService.pass" required="required" autocomplete="true" /></div>
-          <br>
-          <div class="form-group"><button type="submit" (click)="accountService.customLogin()">Iniciar Sesión</button></div>
+          <form (ngSubmit)="customLogin(newCustomLoginForm.value)" [formGroup]="newCustomLoginForm">
+            <div class="form-group">
+              <label for="email">Correo</label>
+              <input type="text" id="email" name="email" formControlName='email' autocomplete="true" />
+              <small *ngIf="newCustomLoginForm.get('email').errors?.required && triedCustomLogin" class="small-red">Ingrese su correo electrónico</small>
+              <small *ngIf="newCustomLoginForm.get('email').errors?.email && triedCustomLogin" class="small-red">Ingrese un correo electrónico válido</small>
+            </div>
+            <div class="form-group">
+              <label for="pass">Contraseña</label>
+              <input type="password" id="pass" name="pass" formControlName="pass" autocomplete="true" />
+              <small *ngIf="newCustomLoginForm.get('pass').errors?.required && triedCustomLogin" class="small-red">Ingrese su contraseña</small>
+            </div>
+            <br>
+            <div class="form-group">
+              <button type="submit">Iniciar Sesión</button>
+            </div>
+          </form>
           <br>
         </ng-container>
         <!-- SMS -->
         <ng-template #sms>
           <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre"
-            [(ngModel)]="name" required="required" /></div>
-          <div class="form-group"><label for="phoneNumber">Teléfono</label><input type="text" id="phoneNumber" name="phoneNumber"
-              [(ngModel)]='phoneNumber' required="required" autocomplete="true" placeholder="+524491234567"/></div>
+              [(ngModel)]="name" required="required" /></div>
+          <div class="form-group"><label for="phoneNumber">Teléfono</label><input type="text" id="phoneNumber"
+              name="phoneNumber" [(ngModel)]='phoneNumber' required="required" autocomplete="true"
+              placeholder="+524491234567" /></div>
           <div id="recaptcha-container"></div>
           <br>
-          <div class="form-group"><button type="button" (click)="sendOTP()" [disabled]="disableOTPSendBtn">Enviar Código</button></div>
+          <div class="form-group"><button type="button" (click)="sendOTP()" [disabled]="disableOTPSendBtn">Enviar
+              Código</button></div>
           <p>{{disableOTPSendBtn}}
           </p>
           <br>
           <!-- Verification Code -->
           <ng-container *ngIf="!noSent">
             <div class="form-group"><label for="otp">Nombre</label><input type="text" id="otp" name="otp"
-              [(ngModel)]="otp" required="required" /></div>
+                [(ngModel)]="otp" required="required" /></div>
             <div class="form-group"><button type="button" (click)="verifyOTP()">Verificar Código</button></div>
           </ng-container>
         </ng-template>
@@ -62,43 +75,51 @@
         <h1>Registro</h1>
       </div>
       <div class="form-content">
-        
-          <div class="form-group">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" formControlName="nombre" required="required">
-            <small *ngIf="newRegisterForm.get('nombre').errors && triedRegister">Ingrese un nombre</small>
-          </div>
-          <div class="form-group">
-            <label for="emailR">Correo Electrónico</label>
-            <input type="email" id="emailR" name="emailR" formControlName="correo" required="required" />
-            <small *ngIf="newRegisterForm.get('correo').errors?.required && triedRegister">Ingrese un correo electrónico</small>
-            <small *ngIf="newRegisterForm.get('correo').errors?.email && triedRegister">Ingrese un correo electrónico válido</small>
-          </div>
-          <div class="row cent">
-            <div class="col-md-12 col-lg-6" style="width: 100% !important; padding-left: 0;">
-              <div class="form-group" style="width: 100%;">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" formControlName="password" name="password" autocomplete="false">
-                <small *ngIf="newRegisterForm.get('password').errors?.required && triedRegister">Ingrese una contraseña</small>
-                <small *ngIf="newRegisterForm.get('password').errors?.minlength && triedRegister">Ingrese un correo electrónico 6</small>
-              </div>
-            </div>
-            <div class="col-md-12 col-lg-6 m-res" style="width: 100% !important; padding-right: 0;">
-              <div class="form-group">
-                <label for="cpassword">Repetir contraseña</label>
-                <input type="password" id="cpassword" formControlName="password2" name="cpassword" autocomplete="false">
-                <small *ngIf="newRegisterForm.get('password2').errors?.required && triedRegister">Repita su contraseña</small>
-                <small *ngIf="newRegisterForm.get('password2').errors?.minlength && triedRegister">Ingrese un correo electrónico 6</small>
-                <small *ngIf="newRegisterForm.get('password2').value != newRegisterForm.get('password').value && !newRegisterForm.get('password2').errors && triedRegister">No coinciden</small>
 
-              </div>
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" formControlName="nombre" required="required">
+          <small *ngIf="newRegisterForm.get('nombre').errors && triedRegister">Ingrese un nombre</small>
+        </div>
+        <div class="form-group">
+          <label for="emailR">Correo Electrónico</label>
+          <input type="email" id="emailR" name="emailR" formControlName="correo" required="required" />
+          <small *ngIf="newRegisterForm.get('correo').errors?.required && triedRegister">Ingrese un correo
+            electrónico</small>
+          <small *ngIf="newRegisterForm.get('correo').errors?.email && triedRegister">Ingrese un correo electrónico
+            válido</small>
+        </div>
+        <div class="row cent">
+          <div class="col-md-12 col-lg-6" style="width: 100% !important; padding-left: 0;">
+            <div class="form-group" style="width: 100%;">
+              <label for="password">Contraseña</label>
+              <input type="password" id="password" formControlName="password" name="password" autocomplete="false">
+              <small *ngIf="newRegisterForm.get('password').errors?.required && triedRegister">Ingrese una
+                contraseña</small>
+              <small *ngIf="newRegisterForm.get('password').errors?.minlength && triedRegister">Ingrese un correo
+                electrónico 6</small>
             </div>
           </div>
-          <br>
-          <div class="form-group">
-            <input type="button" class="btn" value="Registrarse" (click)="validateRegister(newRegisterForm.value)"/>
+          <div class="col-md-12 col-lg-6 m-res" style="width: 100% !important; padding-right: 0;">
+            <div class="form-group">
+              <label for="cpassword">Repetir contraseña</label>
+              <input type="password" id="cpassword" formControlName="password2" name="cpassword" autocomplete="false">
+              <small *ngIf="newRegisterForm.get('password2').errors?.required && triedRegister">Repita su
+                contraseña</small>
+              <small *ngIf="newRegisterForm.get('password2').errors?.minlength && triedRegister">Ingrese un correo
+                electrónico 6</small>
+              <small
+                *ngIf="newRegisterForm.get('password2').value != newRegisterForm.get('password').value && !newRegisterForm.get('password2').errors && triedRegister">No
+                coinciden</small>
+
+            </div>
           </div>
-        
+        </div>
+        <br>
+        <div class="form-group">
+          <input type="button" class="btn" value="Registrarse" (click)="validateRegister(newRegisterForm.value)" />
+        </div>
+
       </div>
     </div>
   </form>
