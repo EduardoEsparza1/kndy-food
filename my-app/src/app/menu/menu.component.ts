@@ -19,8 +19,17 @@ export class MenuComponent implements OnInit {
   }
 
   productos = []
-
+  //para el spinner:
+  public load: Boolean = false;
   ngOnInit(): void {
+
+    //para el spinner:
+    setTimeout(() => {
+      this.load = true;
+    }, 3000);
+
+
+
     this.firestoreService.getProductos().subscribe(productsSnapshot => {
       this.productos = []
       productsSnapshot.forEach((productData: any) => {
