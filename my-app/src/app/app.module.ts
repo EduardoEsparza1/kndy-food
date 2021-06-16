@@ -23,9 +23,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { MessageService } from './services/message/message.service';
-import { QrCodeModule } from 'ng-qrcode';
+
 import { ChartsModule } from 'ng2-charts';
 import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafica
+
+import { QrCodeModule } from 'ng-qrcode';
+import { CodigoqrService } from './services/codigoQR/codigoqr.service'
 
 @NgModule({
   declarations: [
@@ -54,7 +57,7 @@ import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafic
     HttpClientModule,
     QrCodeModule
   ],
-  providers: [WindowService, MessageService],
+  providers: [WindowService, MessageService, CodigoqrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
