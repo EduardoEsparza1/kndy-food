@@ -6,6 +6,8 @@ import { AccountService } from '../services/login/account.service';
 import { GlobalService } from '../services/screenReader/global.service';
 import { FirestoreService } from '../services/firestore/firestore.service'
 
+import Swal from 'sweetalert2';
+
 declare var $: any;
 
 @Component({
@@ -38,7 +40,11 @@ export class NavbarComponent implements OnInit {
       this.firestoreService.updateCartProduct(this.carrito[i].idCarrito, this.carrito[i].data)
       this.total += this.carrito[i].data.producto.data.precio
     }else{
-      alert("No hay mas");
+      Swal.fire({
+        icon: 'info',
+        title: 'Alto...',
+        text: 'Lo sentimos, no hay más productos!',
+      })
     }
   }
 
@@ -97,7 +103,14 @@ export class NavbarComponent implements OnInit {
     let values = {data: data, uid: this.accountService.uid, fecha: fecha}
     this.firestoreService.addPedido(values).then(() => {
       $('#closeCartModal').click()
-      alert("apartado exitoso")//Modificar
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Suuuuper...',
+        text: 'Tu pedido ha sido apartado!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
   }
 
