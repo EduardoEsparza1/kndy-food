@@ -13,8 +13,8 @@ import { CodigoqrService } from '../services/codigoQR/codigoqr.service'
 export class PedidosComponent implements OnInit {
 
   pedidos: any
-  datospedidos: any
   totalGastado: number
+  public load: Boolean = false;
 
   constructor(
     private firestoreService: FirestoreService,
@@ -24,7 +24,6 @@ export class PedidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.pedidos = [];
-    this.datospedidos = [];
     this.totalGastado = 0
 
     this.firestoreService.getPedidos(this.accountService.uid).subscribe((pedidoSnapshot) => {
@@ -36,6 +35,7 @@ export class PedidosComponent implements OnInit {
         this.pedidos.push(data);
 
       });
+      this.load = true;
     });
 
     this.codigoqr.getDatosPedidos().forEach((pedido: any) => {
@@ -51,19 +51,6 @@ export class PedidosComponent implements OnInit {
       
     })
 
-    /*let a = this.codigoqr.getDatosPedidos().subscribe(
-      res => {
-        this.datospedidos = res;
-        console.log(this.datospedidos);
-      },
-      (err) => {
-        console.log(err)
-        alert("jsjs")
-      }
-      
-    )
-    console.log(a)
-    a.unsubscribe()*/
   }
 
 }

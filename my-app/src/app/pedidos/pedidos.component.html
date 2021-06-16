@@ -1,45 +1,43 @@
-<h3 class="pb-4 mb-4 border-bottom text-center">
-  <span class="text-primary" style="font-weight: 700;">MIS PEDIDOS</span>
-</h3>
+  <h3 class="pb-4 mb-4 border-bottom text-center">
+    <span class="text-primary" style="font-weight: 700;">MIS PEDIDOS</span>
+  </h3>
 
-<div class="row mb-2" *ngIf="datospedidos.length > 0; else sinPedidos">
-  <div class="col-md-6" *ngFor="let pedido of pedidos; let i = index">
-    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static" style="background-color: white;">
-        <strong class="d-inline-block mb-2 text-primary">Pedido {{i+1}} - {{pedido.fecha}}</strong>
-        <ng-container *ngFor="let datos of pedido.data; let j = index">
-          <h5 class="mb-0">{{datos.data.producto.data.nombre}}</h5>
-          <p class="card-text mb-auto">{{datos.data.cantidad}} X ${{datos.data.producto.data.precio}} | ${{datos.data.cantidad*datos.data.producto.data.precio}}</p>
-        </ng-container>
-        <!-- <p class="text-primary">Total: {{}}</p> -->
-        <!--Aquí hay que mandar a gelatinas-->
-      </div>
-      <div class="col-auto d-none d-lg-block">
-        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
-          aria-label="Placeholder: Gelatinas" preserveAspectRatio="xMidYMid slice" focusable="false">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-            dy=".3em">Gelatinas</text>
-        </svg>
+  <div class="row mb-2" *ngIf="pedidos.length > 0; else sinPedidos">
+    <div class="col-md-6" *ngFor="let pedido of pedidos; let i = index">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static" style="background-color: white;">
+          <strong class="d-inline-block mb-2 text-primary">Pedido {{i+1}} - {{pedido.fecha}}</strong>
+          <ng-container *ngFor="let datos of pedido.data; let j = index">
+            <h5 class="mb-0">{{datos.data.producto.data.nombre}}</h5>
+            <p class="card-text mb-auto">{{datos.data.cantidad}} X ${{datos.data.producto.data.precio}} | ${{datos.data.cantidad*datos.data.producto.data.precio}}</p>
+          </ng-container>
+          <!-- <p class="text-primary">Total: {{}}</p> -->
+          <!--Aquí hay que mandar a gelatinas-->
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Placeholder: Gelatinas" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+              dy=".3em">Gelatinas</text>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<ng-template #sinPedidos>
-  <h2 class="text-primary text-center mt-4">SIN PEDIDOS REGISTRADOS</h2>
-</ng-template>
-<hr>
-<!-- poner QR y texto "dinero gastado hasta ahora" -->
-<!-- nel prrillo :v -->
-<!-- Por mis huevos que si >:v -->
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h2>Escanea el código QR para ver cuánto dinero has gastado en tus apartados :)</h2>
-    </div>
-    <div class="col">
-      <qr-code value="Dinero gastado hasta ahora: ${{totalGastado}} " size="200" errorCorrectionLevel=M></qr-code>
+  <ng-template #sinPedidos>
+    <h2 class="text-primary text-center mt-4">SIN PEDIDOS REGISTRADOS</h2>
+  </ng-template>
+  <hr>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Escanea el código QR para ver cuánto dinero has gastado en tus apartados :)</h2>
+      </div>
+      <div class="col">
+        <qr-code value="Dinero gastado hasta ahora: ${{totalGastado}} " size="200" errorCorrectionLevel=M></qr-code>
+      </div>
     </div>
   </div>
-</div>
