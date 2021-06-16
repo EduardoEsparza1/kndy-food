@@ -2,7 +2,7 @@
   <span class="text-primary" style="font-weight: 700;">MIS PEDIDOS</span>
 </h3>
 
-<div class="row mb-2">
+<div class="row mb-2" *ngIf="datospedidos.length > 0; else sinPedidos">
   <div class="col-md-6" *ngFor="let pedido of pedidos; let i = index">
     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static" style="background-color: white;">
@@ -25,6 +25,10 @@
     </div>
   </div>
 </div>
+
+<ng-template #sinPedidos>
+  <h2 class="text-primary text-center mt-4">SIN PEDIDOS REGISTRADOS</h2>
+</ng-template>
 <hr>
 <!-- poner QR y texto "dinero gastado hasta ahora" -->
 <!-- nel prrillo :v -->
