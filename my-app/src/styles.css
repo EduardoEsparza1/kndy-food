@@ -20,6 +20,11 @@ body {
     /* background-position: center; */
 }
 
+.fondo2 {
+    background-image: url(assets/img-footer199r.jpg);
+    /* background-position: center; */
+}
+
 .gelatina {
     background-image: url(assets/gelatina199.jpg);
 }
@@ -38,4 +43,13 @@ body {
     width: 200px;
     height: 250px;
     background-image: url(assets/galletas199.jpg);
+    color: #fff;
+}
+
+.blanco {
+    color: rgb(255, 255, 255);
+}
+
+.alto {
+    height: 265px;
 }
