@@ -1,11 +1,25 @@
-<h3 class="pb-4 mb-4 border-bottom text-center">
+<div class="contacto">
+    <!-- <img class="logocontacto" src="/src/assets/logo-contactanos.png" alt="logo"> -->
+</div>
+
+
+<!-- <h3 class="pb-4 mb-4 border-bottom text-center">
     <span class="text-primary" style="font-weight: 700;">CONTACTÁNOS</span>
-</h3>
+</h3> -->
+
+<!-- <div>
+    <img class="logocontacto" src="assets/jelly.png" alt="logo">
+</div> -->
 
 <div class="d-flex justify-content-center align-items-center ">
     <div class="cajaCont row no-gutters align-items-center">
         <div class="col-auto d-none d-lg-block">
-            <img class="operador" src="../../assets/operador.gif" alt="">
+            <div>
+
+
+                <img class="operador" src="../../assets/operador.gif" alt="operador">
+            </div>
+
         </div>
         <div class="col">
             <!--
@@ -32,7 +46,8 @@
 
             </form>
             -->
-            
+
+
             <form (ngSubmit)="contactForm(datosForm.value)" [formGroup]="datosForm">
                 <h5>Tu eres lo más importante y nos gustaría saber qué piensas.</h5><br>
                 <div class="form-group">
@@ -47,18 +62,19 @@
                     <small *ngIf="datosForm.get('email').errors?.email && triedDatos" class="small-red">Ingrese un correo electrónico válido</small>
                 </div>
                 <div class="form-group">
-                  <label for="mensaje">Mensaje</label>
-                  <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required="required" formControlName="mensaje"></textarea>
-                  <small *ngIf="datosForm.get('mensaje').errors?.required && triedDatos" class="small-red">Ingrese un mensaje</small>
+                    <label for="mensaje">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required="required" formControlName="mensaje"></textarea>
+                    <small *ngIf="datosForm.get('mensaje').errors?.required && triedDatos" class="small-red">Ingrese un mensaje</small>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
                     </div>
                 </div>
 
             </form>
+
 
 
             <table>
@@ -87,15 +103,13 @@
                 <div class="d-flex justify-content-center">
                     <div class="p-2"><a href="https://web.facebook.com/Kndy-Food-108211458158600" target="blank"><i class="fab fa-facebook"></i></a></div>
                     <div class="p-2"><a href="https://www.instagram.com/kndy_food/" target="blank"><i class="fab fa-instagram"></i></a></div>
-                    <div class="p-2"><a href="https://twitter.com/FoodKndy" target="blank"><i class="fab fa-twitter"></i></a></div> 
+                    <div class="p-2"><a href="https://twitter.com/FoodKndy" target="blank"><i class="fab fa-twitter"></i></a></div>
                     <div class="p-2"><a href="https://www.youtube.com/channel/UCzFDTqWx97D8sonGYtyYzsg" target="blank"><i class="fab fa-youtube"></i></a></div>
                 </div>
             </div>
         </div>
 
-        
+
 
     </div>
 </div>
-
-
