@@ -1,21 +1,18 @@
 <body class="hero-anime">
-    <div class="navigation-wrap bg-light start-header start-style">
+    <div class="navigation-wrap bg-light start-header start-style ">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <!-- Logo -->
-                        <a class="navbar-brand" [routerLink]="['home']"><img src="../../assets/jelly.png"
-                                alt="logo"></a>
+                        <a class="navbar-brand" [routerLink]="['home']"><img src="../../assets/jelly.png" alt="logo"></a>
 
                         <div class=" pl-4 pl-md-0 ml-0 ml-md-4">
                             <button class="btn btn-light volumen" (click)="habilitarSpeak()"><i
                                     class="fas fa-volume-up"></i></button>
                         </div>
 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
@@ -26,15 +23,11 @@
                                 </li>
 
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d1" role="button"
-                                        aria-haspopup="true" aria-expanded="false">Menú</a>
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d1" role="button" aria-haspopup="true" aria-expanded="false">Menú</a>
                                     <div class="dropdown-menu" id="d1">
-                                        <a class="dropdown-item" [routerLink]="['menu']"
-                                            (click)="accountService.cambioCategoria(1)">Pasteles.</a>
-                                        <a class="dropdown-item" [routerLink]="['menu']"
-                                            (click)="accountService.cambioCategoria(2)">Gelatinas.</a>
-                                        <a class="dropdown-item" [routerLink]="['menu']"
-                                            (click)="accountService.cambioCategoria(3)">Galletas.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(1)">Pasteles.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(2)">Gelatinas.</a>
+                                        <a class="dropdown-item" [routerLink]="['menu']" (click)="accountService.cambioCategoria(3)">Galletas.</a>
 
                                     </div>
                                 </li>
@@ -58,18 +51,15 @@
                                     <a class="nav-link" [routerLink]="['estadisticas']">Estadisticas</a>
                                 </li>
 
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active"
-                                    *ngIf="auth.user | async as user; else showLogin" id="logout">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d2" role="button"
-                                        aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active" *ngIf="auth.user | async as user; else showLogin" id="logout">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="d2" role="button" aria-haspopup="true" aria-expanded="false">{{user.displayName}}</a>
                                     <div class="dropdown-menu" id="d2">
                                         <a class="dropdown-item" [routerLink]="['pedidos']">Mis Pedidos.</a>
                                         <a class="dropdown-item" (click)="accountService.logout()">Cerrar Sesión.</a>
                                     </div>
 
                                     <!-- Carrito -->
-                                    <a class="nav-link pl-4 pl-md-0 ml-0 ml-md-4" data-toggle="modal"
-                                        data-target="#cart"><i class="fa fa-shopping-cart"></i><span
+                                    <a class="nav-link pl-4 pl-md-0 ml-0 ml-md-4" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i><span
                                             class="badge">{{carrito.length}}</span></a>
 
                                 </li>
