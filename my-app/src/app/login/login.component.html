@@ -103,19 +103,16 @@
             <div class="form-group" style="width: 100%;">
               <label for="password">Contraseña</label>
               <input type="password" id="password" formControlName="password" name="password" autocomplete="false">
-              <small *ngIf="newRegisterForm.get('password').errors?.required && triedRegister">Ingrese una
-                contraseña</small>
-              <small *ngIf="newRegisterForm.get('password').errors?.minlength && triedRegister">Ingrese un correo
-                electrónico</small>
+              <small *ngIf="newRegisterForm.get('password').errors?.required && triedRegister">Ingrese una contraseña de mínimo 6 digitos</small>
+              <small *ngIf="newRegisterForm.get('password').errors?.minlength && triedRegister">Ingrese un correo electrónico</small>
             </div>
           </div>
           <div class="col-md-12 col-lg-6 m-res" style="width: 100% !important; padding-right: 0;">
             <div class="form-group">
               <label for="cpassword">Repetir contraseña</label>
               <input type="password" id="cpassword" formControlName="password2" name="cpassword" autocomplete="false">
-              <small *ngIf="newRegisterForm.get('password2').errors?.required && triedRegister">Repita su
-                contraseña</small>
-              <small *ngIf="newRegisterForm.get('password2').errors?.minlength && triedRegister">Ingrese una contraseña de 6 digitos</small>
+              <small *ngIf="newRegisterForm.get('password2').errors?.required && triedRegister">Repita su contraseña</small>
+              <small *ngIf="newRegisterForm.get('password2').errors?.minlength && triedRegister">Ingrese una contraseña de mínimo 6 digitos</small>
               <small *ngIf="newRegisterForm.get('password2').value != newRegisterForm.get('password').value && !newRegisterForm.get('password2').errors && triedRegister">Las contraseñas no coinciden</small>
             </div>
           </div>
