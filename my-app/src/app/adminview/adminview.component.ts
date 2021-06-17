@@ -60,8 +60,6 @@ export class AdminviewComponent implements OnInit {
             id: product.id,
             data: product.data()
           })
-        else
-          console.error("Producto con categoria inexistente")
 
       })
     })

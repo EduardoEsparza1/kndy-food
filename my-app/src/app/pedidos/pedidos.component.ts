@@ -39,8 +39,7 @@ export class PedidosComponent implements OnInit {
     });
 
     this.codigoqr.getDatosPedidos().forEach((pedido: any) => {
-      //console.log(pedido)
-      //1215
+      
       pedido.forEach(element => {
         element.data.forEach(producto => {
           let cantidad = producto.data.cantidad
