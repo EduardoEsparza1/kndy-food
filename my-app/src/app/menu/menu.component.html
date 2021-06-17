@@ -29,7 +29,7 @@
                         <h4 class="card-title">{{ producto.data.nombre }}</h4>
                         <p class="card-text">{{ producto.data.descripcion }}</p>
                         <p class="card-text">Existencia: {{ producto.data.existencia }}</p>
-                        <p class="card-text">Precio: ${{ producto.data.precio }}</p>
+                        <p class="card-text">Precio: {{ producto.data.precio | pesos}}</p>
                         <button type="button" class="btn btn-outline-primary" (click)="addToCartMenu(i)">Agregar</button>
                     </div>
                 </div>

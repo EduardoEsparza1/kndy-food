@@ -29,6 +29,7 @@ import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafic
 
 import { QrCodeModule } from 'ng-qrcode';
 import { CodigoqrService } from './services/codigoQR/codigoqr.service';
+import { PesosPipe } from './pipes/pesos.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CodigoqrService } from './services/codigoQR/codigoqr.service';
     AdminviewComponent,
     MenuComponent,
     EstadisticasComponent,
-    PedidosComponent
+    PedidosComponent,
+    PesosPipe
   ],
   imports: [
     BrowserModule,

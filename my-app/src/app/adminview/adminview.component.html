@@ -90,7 +90,7 @@
                       <td>{{pastel.data.nombre}}</td>
                       <td>{{pastel.data.descripcion}}</td>
                       <td>{{pastel.data.existencia}}</td>
-                      <td>${{pastel.data.precio}}</td>
+                      <td>{{pastel.data.precio | pesos}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -124,7 +124,7 @@
                       <td>{{gelatina.data.nombre}}</td>
                       <td>{{gelatina.data.descripcion}}</td>
                       <td>{{gelatina.data.existencia}}</td>
-                      <td>${{gelatina.data.precio}}</td>
+                      <td>{{gelatina.data.precio | pesos}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -160,7 +160,7 @@
                       <td>{{galleta.data.nombre}}</td>
                       <td>{{galleta.data.descripcion}}</td>
                       <td>{{galleta.data.existencia}}</td>
-                      <td>${{galleta.data.precio}}</td>
+                      <td>{{galleta.data.precio | pesos}}</td>
                     </tr>
                   </tbody>
                 </table>
