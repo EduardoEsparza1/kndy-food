@@ -19,3 +19,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.fondopasteles {
+    width: 100%;
+}
+
+.fondopasteles img {
+    width: 100%;
+}
