@@ -3,7 +3,7 @@
   </h3>
 
   <div class="row mb-2" *ngIf="pedidos.length > 0; else sinPedidos">
-    <div class="col-md-6" *ngFor="let pedido of pedidos; let i = index">
+    <div class="col-md-4 col-sm-12" *ngFor="let pedido of pedidos; let i = index">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static" style="background-color: white;">
           <strong class="d-inline-block mb-2 text-primary">Pedido {{i+1}} - {{pedido.fecha}}</strong>
@@ -13,14 +13,6 @@
           </ng-container>
           <!-- <p class="text-primary">Total: {{}}</p> -->
           <!--Aquí hay que mandar a gelatinas-->
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
-            aria-label="Placeholder: Gelatinas" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-              dy=".3em">Gelatinas</text>
-          </svg>
         </div>
       </div>
     </div>
