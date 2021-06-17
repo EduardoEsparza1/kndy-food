@@ -30,6 +30,7 @@ import { PedidosComponent } from './pedidos/pedidos.component'; //para la grafic
 import { QrCodeModule } from 'ng-qrcode';
 import { CodigoqrService } from './services/codigoQR/codigoqr.service';
 import { PesosPipe } from './pipes/pesos.pipe';
+import { FistNamePipe } from './pipes/fist-name.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PesosPipe } from './pipes/pesos.pipe';
     MenuComponent,
     EstadisticasComponent,
     PedidosComponent,
-    PesosPipe
+    PesosPipe,
+    FistNamePipe
   ],
   imports: [
     BrowserModule,

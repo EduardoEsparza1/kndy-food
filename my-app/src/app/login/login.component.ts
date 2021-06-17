@@ -94,7 +94,6 @@ export class LoginComponent implements OnInit {
 
   sendOTP(form) {
     if(this.newSMSLoginForm.valid && !this.wrongCaptcha){
-      Swal.fire('Por enviar');
       this.afAuth.signInWithPhoneNumber(form.phoneNumber, this.windowRef.recaptchaVerifier)
       .then((confirmationResult) => {
         this.wrongCaptcha = true
@@ -104,7 +103,13 @@ export class LoginComponent implements OnInit {
           name: '',
           phoneNumber: ''
         })
-        Swal.fire('Enviado');
+        Swal.fire({
+          icon: 'success',
+          title: 'Mensaje enviado!!',
+          text: 'Espera un SMS con tu código de verificación',
+          showConfirmButton: false,
+          timer: 3000
+        })
         this.windowRef.confirmationResult = confirmationResult;
         this.noSent = false;
       });
