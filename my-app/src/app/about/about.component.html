@@ -1,17 +1,33 @@
-<h3 class="pb-4 mb-4 border-bottom text-center">
+<div class="divflex row flex-md-row">
+    <div>
+        <img class="contacto" src="../../assets/logo-chico.png" alt="logo">
+    </div>
+    <div class="alinear faq ">
+        <h3 class="pb-4 mb-4 border-bottom text-center">
+            <span id="f1">SOBRE NOSOTROS . . .</span>
+            <!-- class="text-primary" -->
+            <ng-container *ngIf="validarSpeak.band">
+                <button (click)="playSpeak('f1')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
+            </ng-container>
+        </h3>
+    </div>
+</div>
+
+<!-- <h3 class="pb-4 mb-4 border-bottom text-center">
     <span id="a1" class="text-primary">SOBRE NOSOTROS . . .</span>
     <ng-container *ngIf="validarSpeak.band">
       <button (click)="playSpeak('a1')" class="screen"><i class="fas fa-play-circle"></i></button>
       <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
     </ng-container>
-</h3>
+</h3> -->
 
 
 <div class="d-flex justify-content-center">
     <div class="cajaAbout align-items-center justify-content-center">
 
         <h5>
-           <span id="a2">Nosotros somos una plataforma 100% mexicana de pedidos y entrega de alimentos en línea lanzada por primera vez en 2021 y con sede en Aguascalientes, Ags.</span><br><br>
+            <span id="a2">Nosotros somos una plataforma 100% mexicana de pedidos y entrega de alimentos en línea lanzada por primera vez en 2021 y con sede en Aguascalientes, Ags.</span><br><br>
             <span id="a3">Los usuarios pueden leer menús, opiniones y calificaciones, ordenar y pagar por alimentos de los restaurantes participantes utilizando una aplicación en las plataformas iOS o Android, o a través de un navegador web.</span>
             <ng-container *ngIf="validarSpeak.band">
                 <button (click)="playSpeak2('a2','a3')" class="screen"><i class="fas fa-play-circle"></i></button>
@@ -25,17 +41,17 @@
 
 
 <div class="d-flex justify-content-center align-items-center ">
-    
+
     <div class="col-auto d-none d-xl-block">
         <div class="d-flex cajaAbout2 align-items-center justify-content-center">
             <div class="p-2"><img src="../../assets/pasteles.gif" style="width: 200px;" alt=""></div>
-                <div class="p-2 rect text-center">
-                    <strong id="a4"> ¡No te pierdas nuestras promociones!</strong>
-                    <ng-container *ngIf="validarSpeak.band">
-                        <button (click)="playSpeak('a4')" class="screen1"><i class="fas fa-play-circle"></i></button>
-                        <button (click)="stopSpeak()" class="screen1"><i class="fas fa-stop-circle"></i></button>
-                    </ng-container>
-                </div>
+            <div class="p-2 rect text-center">
+                <strong id="a4"> ¡No te pierdas nuestras promociones!</strong>
+                <ng-container *ngIf="validarSpeak.band">
+                    <button (click)="playSpeak('a4')" class="screen1"><i class="fas fa-play-circle"></i></button>
+                    <button (click)="stopSpeak()" class="screen1"><i class="fas fa-stop-circle"></i></button>
+                </ng-container>
+            </div>
         </div>
     </div>
 
@@ -43,17 +59,17 @@
         <div class="row d-flex cajaAbout2 align-items-center justify-content-center">
             <img src="../../assets/pastel.gif" style="width: 200px;" alt="">
             <div class="col-12 rect p-2 text-center">
-               <strong id="a5"> KNDY FOOD</strong>
-               <ng-container *ngIf="validarSpeak.band">
+                <strong id="a5"> KNDY FOOD</strong>
+                <ng-container *ngIf="validarSpeak.band">
                     <button (click)="playSpeak('a5')" class="screen1"><i class="fas fa-play-circle"></i></button>
                     <button (click)="stopSpeak()" class="screen1"><i class="fas fa-stop-circle"></i></button>
                 </ng-container>
-            </div> 
-        </div>  
+            </div>
+        </div>
     </div>
 
     <div class="col-auto d-none d-lg-block">
-    <div class="cajaAbout2 row no-gutters align-items-center justify-content-center">
+        <div class="cajaAbout2 row no-gutters align-items-center justify-content-center">
             <div class="d-flex justify-content-center align-items-start">
                 <div class="p-2"><img src="../../assets/pastel.jpg" style="width: 200px;" alt=""></div>
                 <div class="p-2 rect text-center"><strong id="a6"> ¡Los postres mas ricos!</strong>
