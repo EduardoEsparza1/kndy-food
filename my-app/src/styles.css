@@ -68,3 +68,12 @@ body {
     background-image: url(assets/pastelesban.jpg);
 }
 
+.divflex {
+    display: flex;
+    margin-left: 40px;
+}
+
+.faq {
+    margin: 5% 0 0 10%;
+    color: black;
+}
