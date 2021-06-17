@@ -68,16 +68,3 @@ body {
     background-image: url(assets/pastelesban.jpg);
 }
 
-.logocontacto {
-    max-width: 15%;
-    margin-left: auto;
-    margin: 0 auto;
-}
-
-.contacto {
-    background-image: url(assets/logo-contactanos.png);
-    width: 1079px;
-    height: 300px;
-    margin-top: -40px;
-    margin-bottom: -40px;
-}
