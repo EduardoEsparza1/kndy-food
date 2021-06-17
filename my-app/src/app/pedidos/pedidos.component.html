@@ -3,18 +3,21 @@
   </h3>
 
   <div class="row mb-2" *ngIf="pedidos.length > 0; else sinPedidos">
-    <div class="col-md-4 col-sm-12" *ngFor="let pedido of pedidos; let i = index">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static" style="background-color: white;">
-          <strong class="d-inline-block mb-2 text-primary">Pedido {{i+1}} - {{pedido.fecha}}</strong>
-          <ng-container *ngFor="let datos of pedido.data; let j = index">
-            <h5 class="mb-0">{{datos.data.producto.data.nombre}}</h5>
-            <p class="card-text mb-auto">{{datos.data.cantidad}} X {{datos.data.producto.data.precio | pesos}} | {{datos.data.cantidad*datos.data.producto.data.precio | pesos}}</p>
-          </ng-container>
-          <!-- <p class="text-primary">Total: {{}}</p> -->
-          <!--Aquí hay que mandar a gelatinas-->
+    <div class="card-columns">
+      <div class="tarjeta" *ngFor="let pedido of pedidos; let i = index">
+        <div
+          class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static " style="background-color: white;">
+            <strong class="d-inline-block mb-2 text-primary">Pedido {{i+1}} - {{pedido.fecha}}</strong>
+            <ng-container *ngFor="let datos of pedido.data; let j = index">
+              <h5 class="mb-0">{{datos.data.producto.data.nombre}}</h5>
+              <p class="card-text mb-auto">{{datos.data.cantidad}} X {{datos.data.producto.data.precio | pesos}} |
+                {{datos.data.cantidad*datos.data.producto.data.precio | pesos}}</p>
+            </ng-container>
+            <!-- <p class="text-primary">Total: {{}}</p> -->
+            <!--Aquí hay que mandar a gelatinas-->
+          </div>
         </div>
-        
       </div>
     </div>
   </div>
@@ -30,7 +33,8 @@
         <h2>Escanea el código QR para ver cuánto dinero has gastado en tus apartados :)</h2>
       </div>
       <div class="col">
-        <qr-code value="Dinero gastado hasta ahora: {{totalGastado | pesos}} " size="200" errorCorrectionLevel=M></qr-code>
+        <qr-code value="Dinero gastado hasta ahora: {{totalGastado | pesos}} " size="200" errorCorrectionLevel=M>
+        </qr-code>
       </div>
     </div>
   </div>
