@@ -14,8 +14,7 @@ app.use(bodyParser.urlencoded({ extended:false}));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(express.static(process.cwd()+"/my-app/dist/kndy-food/"));  //Para modo de produccion
-
+app.use(express.static("my-app/dist/kndy-food/"));  //Para modo de produccion
 
 /*firebase*/
 require('dotenv').config()
@@ -61,8 +60,8 @@ app.post('/api/formulario', (req, res) => {
     res.status(200).send();
 })
 
-app.get('/', (req,res) => {
-    res.sendFile(process.cwd()+"/my-app/dist/kndy-food/index.html") //Para modo de produccion
+app.get('*', (req,res) => {
+    res.sendFile(path.resolve('my-app/dist/kndy-food/index.html')) //Para modo de produccion
 });
 
 app.listen(port, () => {
