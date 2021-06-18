@@ -9,6 +9,6 @@ export class MessageService {
   constructor(private http: HttpClient) { }
 
   sendMessage(body) {
-    return this.http.post('https://kndy-food-8c7ba.web.app/api/formulario', body);
+    return this.http.post('http://localhost:3000/api/formulario', body);
   }
 }
