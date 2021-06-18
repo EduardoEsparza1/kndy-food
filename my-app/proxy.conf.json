@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://localhost:3000",
+      "target": "https://kndy-food-8c7ba.web.app",
       "secure": false
     }
   }
