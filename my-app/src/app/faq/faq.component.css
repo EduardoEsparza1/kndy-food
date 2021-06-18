@@ -22,13 +22,6 @@ strong {
     letter-spacing: 0.2em;
 }
 
-#f1 {
-    font-weight: 700;
-    margin-right: 15px;
-    font-size: 50px;
-    font-family: 'Expletus Sans', cursive;
-}
-
 .image {
     background-color: #55595c;
     margin: 30px;
@@ -52,4 +45,20 @@ strong {
 
 .card-header:hover {
     background-color: rgba(236, 236, 236);
+}
+
+#f1{
+    font-weight: 600;
+    font-size: 35px;
+    font-family: 'Expletus Sans', cursive;
+    
+}
+
+.imgLogo{
+    width: 60%;
+    margin-right: -20px;
+}
+
+.cajaTitulo{
+    padding-bottom: 15px;
 }

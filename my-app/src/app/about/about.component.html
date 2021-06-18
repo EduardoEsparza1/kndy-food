@@ -1,17 +1,17 @@
-<div class="divflex row flex-md-row">
-    <div>
-        <img class="contacto" src="../../assets/logo-chico.png" alt="logo">
+<div class="d-flex justify-content-center align-items-center border-bottom">    
+    <div class="d-none d-lg-block">
+        <div class="titulo d-flex justify-content-center">
+            <img class="imgLogo" src="../../assets/logo-chico.png" alt="">
+        </div>
     </div>
-    <div class="alinear faq ">
-        <h3 class="pb-4 mb-4 border-bottom text-center">
-            <span id="f1">SOBRE NOSOTROS . . .</span>
+        <h3 class="text-center">
+            <span id="a1">SOBRE NOSOTROS...</span>
             <!-- class="text-primary" -->
             <ng-container *ngIf="validarSpeak.band">
-                <button (click)="playSpeak('f1')" class="screen"><i class="fas fa-play-circle"></i></button>
+                <button (click)="playSpeak('a1')" class="screen"><i class="fas fa-play-circle"></i></button>
                 <button (click)="stopSpeak()" class="screen"><i class="fas fa-stop-circle"></i></button>
             </ng-container>
         </h3>
-    </div>
 </div>
 
 <!-- <h3 class="pb-4 mb-4 border-bottom text-center">

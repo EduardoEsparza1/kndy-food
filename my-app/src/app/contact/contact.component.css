@@ -87,9 +87,13 @@ form, table{
     color: red;
 }
 
-
-.contacto {
-    width: 57%;
-    margin: -40px;
+#c1{
+    font-weight: 600;
+    font-size: 35px;
+    font-family: 'Expletus Sans', cursive;
 }
 
+.imgLogo{
+    width: 60%;
+    margin-right: -20px;
+}
